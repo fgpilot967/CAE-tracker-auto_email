@@ -1,0 +1,3040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="43200">
+    <title>act-INS-tracker></title>
+<style>
+
+    .flexbox {
+          display: flex;
+          justify-content: space-evenly;
+          text-align: center; 
+          flex-wrap: wrap;
+
+          
+    }
+
+    table {
+      border: 2px;
+      border-style: solid;
+      border-color: black;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      margin-top: 40px;
+      
+      
+    }
+    th, tr, td {
+      border: 1px;
+      border-style: solid;
+      border-color: brown;
+      color: black;
+      text-align: center;
+      padding: 6px;
+      
+    }
+
+    .license {
+        color: blue;
+        font-weight: bold;
+    }
+
+    #tableSpace {
+        height: 10px;
+    }
+
+    #Rossiter, #Campbell, #Gratton, #Raymond, #Barrie, #Granter {
+        background-color: orange;
+    }
+
+    #saveButton {
+        height: 50px;
+        width: 200px;
+        background-color: brown;
+        font-size: 20px;
+        color: aliceblue;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    h4 {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .grey {
+      background-color: rgb(235, 228, 228);
+      cursor: pointer;
+    }
+
+
+</style>
+    
+</head>
+<body>
+  <h4>CAE Instructor-tracker (auto-email)</h4>
+  <div class="flexbox">
+      <div>
+        <table id="editableTableRossiter">
+            <tr>
+            <th colspan="6" id="Rossiter"> MARK ROSSITER / 126328</th>
+            </tr>
+        
+            <tr>
+                <th>License</th>
+                <th>Last Check</th>
+                <th>Validity</th>
+                <th>Expiry Date</th>
+                <th>rem. Days</th>
+                <th>Email sent</th>
+            </tr>
+            <tr>
+                <td class="license">LPC</td>
+                <td contenteditable="true" class="grey" id="lastCheckLpcRossiter">30 NOV 2024</td>
+                <td contenteditable="true" class="grey" id="validityLpcRossiter">12</td>
+                <td id="newExpiryDateLpcRossiter">''</td>
+                <td id="remDaysLpcRossiter"></td>
+                <td ><input type="checkbox" value="sent" id="emailSentLpcRossiter"></td>
+            </tr>
+            <tr>
+                <td class="license">Medical</td>
+                <td contenteditable="true" class="grey" id="lastCheckMedicalRossiter">10 OCT 2024</td>
+                <td contenteditable="true" class="grey" id="validityMedicalRossiter">12</td>
+                <td id="newExpiryDateMedicalRossiter">30 NOV 2025</td>
+                <td id="remDaysMedicalRossiter">100</td>
+                <td ><input type="checkbox" value="sent" id="emailSentMedicalRossiter"></td>
+            </tr>
+            <tr>
+                <td class="license">CASA FPC</td>
+                <td contenteditable="true" class="grey" id="lastCheckFpcRossiter">30 NOV 2024</td>
+                <td contenteditable="true" class="grey" id="validityFpcRossiter">12</td>
+                <td id="newExpiryDateFpcRossiter">30 NOV 2025</td>
+                <td id="remDaysFpcRossiter"></td>
+                <td ><input type="checkbox" value="sent" id="emailSentFpcRossiter"></td>
+            </tr>
+            <tr>
+                <td class="license">S&P</td>
+                <td contenteditable="true" class="grey" id="lastCheckSpRossiter">30 NOV 2024</td>
+                <td contenteditable="true" class="grey" id="validitySpRossiter">12</td>
+                <td id="newExpiryDateSpRossiter">30 NOV 2025</td>
+                <td id="remDaysSpRossiter">100</td>
+                <td ><input type="checkbox" value="sent" id="emailSentSpRossiter"></td>
+            </tr>
+            <tr>
+                <td class="license">EPC</td>
+                <td contenteditable="true" class="grey" id="lastCheckEpcRossiter">30 NOV 2024</td>
+                <td contenteditable="true" class="grey" id="validityEpcRossiter">12</td>
+                <td id="newExpiryDateEpcRossiter">30 NOV 2025</td>
+                <td id="remDaysEpcRossiter">100</td>
+                <td ><input type="checkbox" value="sent" id="emailSentEpcRossiter"></td>
+            </tr>
+            <tr>
+                <td class="license">FER PDP</td>
+                <td contenteditable="true" class="grey" id="lastCheckFerPdpRossiter">30 NOV 2024</td>
+                <td contenteditable="true" class="grey" id="validityFerPdpRossiter">12</td>
+                <td id="newExpiryDateFerPdpRossiter">30 NOV 2025</td>
+                <td id="remDaysFerPdpRossiter">100</td>
+                <td ><input type="checkbox" value="sent" id="emailSentFerPdpRossiter"></td>
+            </tr>
+            <tr>
+                <td class="license">FFS currency</td>
+                <td contenteditable="true" class="grey" id="lastCheckFfsRossiter">30 NOV 2024</td>
+                <td contenteditable="true" class="grey" id="validityFfsRossiter">12</td>
+                <td id="newExpiryDateFfsRossiter">30 NOV 2025</td>
+                <td id="remDaysFfsRossiter">100</td>
+                <td ><input type="checkbox" value="sent" id="emailSentFfsRossiter"></td>
+            </tr>
+            <tr>
+                <td class="license">IPPM</td>
+                <td contenteditable="true" class="grey" id="lastCheckIppmRossiter">30 NOV 2024</td>
+                <td contenteditable="true" class="grey" id="validityIppmRossiter">12</td>
+                <td id="newExpiryDateIppmRossiter">30 NOV 2025</td>
+                <td id="remDaysIppmRossiter">100</td>
+                <td ><input type="checkbox" value="sent" id="emailSentIppmRossiter"></td>
+            </tr>
+            <tr>
+              <td class="license">IPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckIpcRossiter">10 OCT 2024</td>
+              <td contenteditable="true" class="grey" id="validityIpcRossiter">12</td>
+              <td id="newExpiryDateIpcRossiter">30 NOV 2025</td>
+              <td id="remDaysIpcRossiter">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentIpcRossiter"></td>
+          </tr>
+
+        </table>
+      </div>
+
+      <div>
+        <table id="editableTableCampbell">
+            <tr>
+              <th colspan="6" id="Campbell"> LEX CAMPBELL / 115451</th>
+          </tr>
+          
+          <tr>
+              <th>License</th>
+              <th>Last Check</th>
+              <th>Validity</th>
+              <th>Expiry Date</th>
+              <th>rem. Days</th>
+              <th>Email sent</th>
+          </tr>
+          <tr>
+              <td class="license">LPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckLpcCampbell">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityLpcCampbell">12</td>
+              <td id="newExpiryDateLpcCampbell">''</td>
+              <td id="remDaysLpcCampbell"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentLpcCampbell"></td>
+          </tr>
+          <tr>
+              <td class="license">Medical</td>
+              <td contenteditable="true" class="grey" id="lastCheckMedicalCampbell">10 OCT 2024</td>
+              <td contenteditable="true" class="grey" id="validityMedicalCampbell">12</td>
+              <td id="newExpiryDateMedicalCampbell">30 NOV 2025</td>
+              <td id="remDaysMedicalCampbell">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentMedicalCampbell"></td>
+          </tr>
+          <tr>
+              <td class="license">CASA FPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckFpcCampbell">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFpcCampbell">12</td>
+              <td id="newExpiryDateFpcCampbell">30 NOV 2025</td>
+              <td id="remDaysFpcCampbell"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentFpcCampbell"></td>
+          </tr>
+          <tr>
+              <td class="license">S&P</td>
+              <td contenteditable="true" class="grey" id="lastCheckSpCampbell">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validitySpCampbell">12</td>
+              <td id="newExpiryDateSpCampbell">30 NOV 2025</td>
+              <td id="remDaysSpCampbell">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentSpCampbell"></td>
+          </tr>
+          <tr>
+              <td class="license">EPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckEpcCampbell">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityEpcCampbell">12</td>
+              <td id="newExpiryDateEpcCampbell">30 NOV 2025</td>
+              <td id="remDaysEpcCampbell">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentEpcCampbell"></td>
+          </tr>
+          <tr>
+              <td class="license">FER PDP</td>
+              <td contenteditable="true" class="grey" id="lastCheckFerPdpCampbell">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFerPdpCampbell">12</td>
+              <td id="newExpiryDateFerPdpCampbell">30 NOV 2025</td>
+              <td id="remDaysFerPdpCampbell">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFerPdpCampbell"></td>
+          </tr>
+          <tr>
+              <td class="license">FFS currency</td>
+              <td contenteditable="true" class="grey" id="lastCheckFfsCampbell">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFfsCampbell">12</td>
+              <td id="newExpiryDateFfsCampbell">30 NOV 2025</td>
+              <td id="remDaysFfsCampbell">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFfsCampbell"></td>
+          </tr>
+          <tr>
+              <td class="license">IPPM</td>
+              <td contenteditable="true" class="grey" id="lastCheckIppmCampbell">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityIppmCampbell">12</td>
+              <td id="newExpiryDateIppmCampbell">30 NOV 2025</td>
+              <td id="remDaysIppmCampbell">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentIppmCampbell"></td>
+          </tr>
+          <tr>
+            <td class="license">IPC</td>
+            <td contenteditable="true" class="grey" id="lastCheckIpcCampbell">10 OCT 2024</td>
+            <td contenteditable="true" class="grey" id="validityIpcCampbell">12</td>
+            <td id="newExpiryDateIpcCampbell">30 NOV 2025</td>
+            <td id="remDaysIpcCampbell">100</td>
+            <td ><input type="checkbox" value="sent" id="emailSentIpcCampbell"></td>
+        </tr>
+        </table>
+      </div>   
+            
+      <div>
+        <table id="editableTableGratton">
+            <tr>
+              <th colspan="6" id="Gratton">J_M GRATTON / 819304</th>
+          </tr>
+          
+          <tr>
+              <th>License</th>
+              <th>Last Check</th>
+              <th>Validity</th>
+              <th>Expiry Date</th>
+              <th>rem. Days</th>
+              <th>Email sent</th>
+          </tr>
+          <tr>
+              <td class="license">LPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckLpcGratton">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityLpcGratton">12</td>
+              <td id="newExpiryDateLpcGratton">''</td>
+              <td id="remDaysLpcGratton"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentLpcGratton"></td>
+          </tr>
+          <tr>
+              <td class="license">Medical</td>
+              <td contenteditable="true" class="grey" id="lastCheckMedicalGratton">10 OCT 2024</td>
+              <td contenteditable="true" class="grey" id="validityMedicalGratton">12</td>
+              <td id="newExpiryDateMedicalGratton">30 NOV 2025</td>
+              <td id="remDaysMedicalGratton">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentMedicalGratton"></td>
+          </tr>
+          <tr>
+              <td class="license">CASA FPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckFpcGratton">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFpcGratton">12</td>
+              <td id="newExpiryDateFpcGratton">30 NOV 2025</td>
+              <td id="remDaysFpcGratton"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentFpcGratton"></td>
+          </tr>
+          <tr>
+              <td class="license">S&P</td>
+              <td contenteditable="true" class="grey" id="lastCheckSpGratton">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validitySpGratton">12</td>
+              <td id="newExpiryDateSpGratton">30 NOV 2025</td>
+              <td id="remDaysSpGratton">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentSpGratton"></td>
+          </tr>
+          <tr>
+              <td class="license">EPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckEpcGratton">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityEpcGratton">12</td>
+              <td id="newExpiryDateEpcGratton">30 NOV 2025</td>
+              <td id="remDaysEpcGratton">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentEpcGratton"></td>
+          </tr>
+          <tr>
+              <td class="license">FER PDP</td>
+              <td contenteditable="true" class="grey" id="lastCheckFerPdpGratton">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFerPdpGratton">12</td>
+              <td id="newExpiryDateFerPdpGratton">30 NOV 2025</td>
+              <td id="remDaysFerPdpGratton">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFerPdpGratton"></td>
+          </tr>
+          <tr>
+              <td class="license">FFS currency</td>
+              <td contenteditable="true" class="grey" id="lastCheckFfsGratton">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFfsGratton">12</td>
+              <td id="newExpiryDateFfsGratton">30 NOV 2025</td>
+              <td id="remDaysFfsGratton">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFfsGratton"></td>
+          </tr>
+          <tr>
+              <td class="license">IPPM</td>
+              <td contenteditable="true" class="grey" id="lastCheckIppmGratton">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityIppmGratton">12</td>
+              <td id="newExpiryDateIppmGratton">30 NOV 2025</td>
+              <td id="remDaysIppmGratton">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentIppmGratton"></td>
+          </tr>
+          <tr>
+            <td class="license">IPC</td>
+            <td contenteditable="true" class="grey" id="lastCheckIpcGratton">10 OCT 2024</td>
+            <td contenteditable="true" class="grey" id="validityIpcGratton">12</td>
+            <td id="newExpiryDateIpcGratton">30 NOV 2025</td>
+            <td id="remDaysIpcGratton">100</td>
+            <td ><input type="checkbox" value="sent" id="emailSentIpcGratton"></td>
+        </tr>
+        </table>
+      </div>   
+
+      <div>
+        <table id="editableTableRaymond">
+            <tr>
+              <th colspan="6" id="Raymond">RIC RAYMOND / 121544</th>
+          </tr>
+          
+          <tr>
+              <th>License</th>
+              <th>Last Check</th>
+              <th>Validity</th>
+              <th>Expiry Date</th>
+              <th>rem. Days</th>
+              <th>Email sent</th>
+          </tr>
+          <tr>
+              <td class="license">LPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckLpcRaymond">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityLpcRaymond">12</td>
+              <td id="newExpiryDateLpcRaymond">''</td>
+              <td id="remDaysLpcRaymond"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentLpcRaymond"></td>
+          </tr>
+          <tr>
+              <td class="license">Medical</td>
+              <td contenteditable="true" class="grey" id="lastCheckMedicalRaymond">10 OCT 2024</td>
+              <td contenteditable="true" class="grey" id="validityMedicalRaymond">12</td>
+              <td id="newExpiryDateMedicalRaymond">30 NOV 2025</td>
+              <td id="remDaysMedicalRaymond">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentMedicalRaymond"></td>
+          </tr>
+          <tr>
+              <td class="license">CASA FPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckFpcRaymond">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFpcRaymond">12</td>
+              <td id="newExpiryDateFpcRaymond">30 NOV 2025</td>
+              <td id="remDaysFpcRaymond"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentFpcRaymond"></td>
+          </tr>
+          <tr>
+              <td class="license">S&P</td>
+              <td contenteditable="true" class="grey" id="lastCheckSpRaymond">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validitySpRaymond">12</td>
+              <td id="newExpiryDateSpRaymond">30 NOV 2025</td>
+              <td id="remDaysSpRaymond">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentSpRaymond"></td>
+          </tr>
+          <tr>
+              <td class="license">EPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckEpcRaymond">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityEpcRaymond">12</td>
+              <td id="newExpiryDateEpcRaymond">30 NOV 2025</td>
+              <td id="remDaysEpcRaymond">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentEpcRaymond"></td>
+          </tr>
+          <tr>
+              <td class="license">FER PDP</td>
+              <td contenteditable="true" class="grey" id="lastCheckFerPdpRaymond">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFerPdpRaymond">12</td>
+              <td id="newExpiryDateFerPdpRaymond">30 NOV 2025</td>
+              <td id="remDaysFerPdpRaymond">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFerPdpRaymond"></td>
+          </tr>
+          <tr>
+              <td class="license">FFS currency</td>
+              <td contenteditable="true" class="grey" id="lastCheckFfsRaymond">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFfsRaymond">12</td>
+              <td id="newExpiryDateFfsRaymond">30 NOV 2025</td>
+              <td id="remDaysFfsRaymond">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFfsRaymond"></td>
+          </tr>
+          <tr>
+              <td class="license">IPPM</td>
+              <td contenteditable="true" class="grey" id="lastCheckIppmRaymond">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityIppmRaymond">12</td>
+              <td id="newExpiryDateIppmRaymond">30 NOV 2025</td>
+              <td id="remDaysIppmRaymond">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentIppmRaymond"></td>
+          </tr>
+          <tr>
+            <td class="license">IPC</td>
+            <td contenteditable="true" class="grey" id="lastCheckIpcRaymond">10 OCT 2024</td>
+            <td contenteditable="true" class="grey" id="validityIpcRaymond">12</td>
+            <td id="newExpiryDateIpcRaymond">30 NOV 2025</td>
+            <td id="remDaysIpcRaymond">100</td>
+            <td ><input type="checkbox" value="sent" id="emailSentIpcRaymond"></td>
+        </tr>
+        </table>
+      </div>   
+
+      <div>
+        <table id="editableTableBarrie">
+            <tr>
+              <th colspan="6" id="Barrie">PHIL BARRIE / 130543</th>
+          </tr>
+          
+          <tr>
+              <th>License</th>
+              <th>Last Check</th>
+              <th>Validity</th>
+              <th>Expiry Date</th>
+              <th>rem. Days</th>
+              <th>Email sent</th>
+          </tr>
+          <tr>
+              <td class="license">LPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckLpcBarrie">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityLpcBarrie">12</td>
+              <td id="newExpiryDateLpcBarrie">''</td>
+              <td id="remDaysLpcBarrie"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentLpcBarrie"></td>
+          </tr>
+          <tr>
+              <td class="license">Medical</td>
+              <td contenteditable="true" class="grey" id="lastCheckMedicalBarrie">10 OCT 2024</td>
+              <td contenteditable="true" class="grey" id="validityMedicalBarrie">12</td>
+              <td id="newExpiryDateMedicalBarrie">30 NOV 2025</td>
+              <td id="remDaysMedicalBarrie">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentMedicalBarrie"></td>
+          </tr>
+          <tr>
+              <td class="license">CASA FPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckFpcBarrie">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFpcBarrie">12</td>
+              <td id="newExpiryDateFpcBarrie">30 NOV 2025</td>
+              <td id="remDaysFpcBarrie"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentFpcBarrie"></td>
+          </tr>
+          <tr>
+              <td class="license">S&P</td>
+              <td contenteditable="true" class="grey" id="lastCheckSpBarrie">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validitySpBarrie">12</td>
+              <td id="newExpiryDateSpBarrie">30 NOV 2025</td>
+              <td id="remDaysSpBarrie">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentSpBarrie"></td>
+          </tr>
+          <tr>
+              <td class="license">EPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckEpcBarrie">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityEpcBarrie">12</td>
+              <td id="newExpiryDateEpcBarrie">30 NOV 2025</td>
+              <td id="remDaysEpcBarrie">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentEpcBarrie"></td>
+          </tr>
+          <tr>
+              <td class="license">FER PDP</td>
+              <td contenteditable="true" class="grey" id="lastCheckFerPdpBarrie">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFerPdpBarrie">12</td>
+              <td id="newExpiryDateFerPdpBarrie">30 NOV 2025</td>
+              <td id="remDaysFerPdpBarrie">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFerPdpBarrie"></td>
+          </tr>
+          <tr>
+              <td class="license">FFS currency</td>
+              <td contenteditable="true" class="grey" id="lastCheckFfsBarrie">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFfsBarrie">12</td>
+              <td id="newExpiryDateFfsBarrie">30 NOV 2025</td>
+              <td id="remDaysFfsBarrie">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFfsBarrie"></td>
+          </tr>
+          <tr>
+              <td class="license">IPPM</td>
+              <td contenteditable="true" class="grey" id="lastCheckIppmBarrie">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityIppmBarrie">12</td>
+              <td id="newExpiryDateIppmBarrie">30 NOV 2025</td>
+              <td id="remDaysIppmBarrie">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentIppmBarrie"></td>
+          </tr>
+          <tr>
+            <td class="license">IPC</td>
+            <td contenteditable="true" class="grey" id="lastCheckIpcBarrie">10 OCT 2024</td>
+            <td contenteditable="true" class="grey" id="validityIpcBarrie">12</td>
+            <td id="newExpiryDateIpcBarrie">30 NOV 2025</td>
+            <td id="remDaysIpcBarrie">100</td>
+            <td ><input type="checkbox" value="sent" id="emailSentIpcBarrie"></td>
+        </tr>
+        </table>
+      </div>   
+
+      <div>
+        <table id="editableTableGranter">
+            <tr>
+              <th colspan="6" id="Granter">DAVID GRANTER / 152323</th>
+          </tr>
+          
+          <tr>
+              <th>License</th>
+              <th>Last Check</th>
+              <th>Validity</th>
+              <th>Expiry Date</th>
+              <th>rem. Days</th>
+              <th>Email sent</th>
+          </tr>
+          <tr>
+              <td class="license">LPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckLpcGranter">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityLpcGranter">12</td>
+              <td id="newExpiryDateLpcGranter">''</td>
+              <td id="remDaysLpcGranter"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentLpcGranter"></td>
+          </tr>
+          <tr>
+              <td class="license">Medical</td>
+              <td contenteditable="true" class="grey" id="lastCheckMedicalGranter">10 OCT 2024</td>
+              <td contenteditable="true" class="grey" id="validityMedicalGranter">12</td>
+              <td id="newExpiryDateMedicalGranter">30 NOV 2025</td>
+              <td id="remDaysMedicalGranter">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentMedicalGranter"></td>
+          </tr>
+          <tr>
+              <td class="license">CASA FPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckFpcGranter">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFpcGranter">12</td>
+              <td id="newExpiryDateFpcGranter">30 NOV 2025</td>
+              <td id="remDaysFpcGranter"></td>
+              <td ><input type="checkbox" value="sent" id="emailSentFpcGranter"></td>
+          </tr>
+          <tr>
+              <td class="license">S&P</td>
+              <td contenteditable="true" class="grey" id="lastCheckSpGranter">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validitySpGranter">12</td>
+              <td id="newExpiryDateSpGranter">30 NOV 2025</td>
+              <td id="remDaysSpGranter">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentSpGranter"></td>
+          </tr>
+          <tr>
+              <td class="license">EPC</td>
+              <td contenteditable="true" class="grey" id="lastCheckEpcGranter">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityEpcGranter">12</td>
+              <td id="newExpiryDateEpcGranter">30 NOV 2025</td>
+              <td id="remDaysEpcGranter">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentEpcGranter"></td>
+          </tr>
+          <tr>
+              <td class="license">FER PDP</td>
+              <td contenteditable="true" class="grey" id="lastCheckFerPdpGranter">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFerPdpGranter">12</td>
+              <td id="newExpiryDateFerPdpGranter">30 NOV 2025</td>
+              <td id="remDaysFerPdpGranter">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFerPdpGranter"></td>
+          </tr>
+          <tr>
+              <td class="license">FFS currency</td>
+              <td contenteditable="true" class="grey" id="lastCheckFfsGranter">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityFfsGranter">12</td>
+              <td id="newExpiryDateFfsGranter">30 NOV 2025</td>
+              <td id="remDaysFfsGranter">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentFfsGranter"></td>
+          </tr>
+          <tr>
+              <td class="license">IPPM</td>
+              <td contenteditable="true" class="grey" id="lastCheckIppmGranter">30 NOV 2024</td>
+              <td contenteditable="true" class="grey" id="validityIppmGranter">12</td>
+              <td id="newExpiryDateIppmGranter">30 NOV 2025</td>
+              <td id="remDaysIppmGranter">100</td>
+              <td ><input type="checkbox" value="sent" id="emailSentIppmGranter"></td>
+          </tr>
+          <tr>
+            <td class="license">IPC</td>
+            <td contenteditable="true" class="grey" id="lastCheckIpcGranter">10 OCT 2024</td>
+            <td contenteditable="true" class="grey" id="validityIpcGranter">12</td>
+            <td id="newExpiryDateIpcGranter">30 NOV 2025</td>
+            <td id="remDaysIpcGranter">100</td>
+            <td ><input type="checkbox" value="sent" id="emailSentIpcGranter"></td>
+        </tr>
+        </table>
+      </div>   
+
+
+  </div>
+
+  <button id="saveButton" onclick="saveTableData('Rossiter'); saveTableData('Campbell'); saveTableData('Gratton'); saveTableData('Raymond'); saveTableData('Barrie'); saveTableData('Granter')">Update/Save values</button>
+
+<script>
+
+
+
+
+
+
+// Funktion zum Laden der Tabelle
+function loadTableData(tableName) {
+    const table = document.getElementById("editableTable" + tableName);
+    const storedData = JSON.parse(localStorage.getItem("tableData" + tableName));
+
+    if (storedData) {
+        console.log("Gespeicherte Daten für " + tableName + " geladen:", storedData);
+
+        for (let i = 1; i < table.rows.length; i++) {
+            const row = table.rows[i];
+            if (storedData[i - 1]) {
+                for (let j = 0; j < row.cells.length; j++) {
+                    const cell = row.cells[j];
+
+                    // Prüfe, ob die Zelle eine Checkbox enthält
+                    const input = cell.querySelector("input[type='checkbox']");
+                    if (input) {
+                        input.checked = storedData[i - 1][j] === "sent"; // Setze den Status basierend auf gespeicherten Daten
+                    } else {
+                        cell.innerText = storedData[i - 1][j]; // Normale Textzelle
+                    }
+                }
+            }
+        }
+    } else {
+        console.log("Keine gespeicherten Daten für " + tableName + " gefunden.");
+    }
+}
+
+// Funktion zum Speichern der Tabelle
+function saveTableData(tableName) {
+    const table = document.getElementById("editableTable" + tableName);
+    const rows = table.rows;
+    const tableData = [];
+
+    for (let i = 1; i < rows.length; i++) {
+        const rowData = [];
+        for (let j = 0; j < rows[i].cells.length; j++) {
+            const cell = rows[i].cells[j];
+
+            // Falls die Zelle eine Checkbox enthält
+            const input = cell.querySelector("input[type='checkbox']");
+            if (input) {
+                rowData.push(input.checked ? "sent" : "not sent"); // Speichere "sent" oder "not sent"
+            } else {
+                rowData.push(cell.innerText);
+            }
+        }
+        tableData.push(rowData);
+    }
+
+    localStorage.setItem("tableData" + tableName, JSON.stringify(tableData));
+    console.log("Gespeicherte Daten für " + tableName + ":", tableData);
+}
+
+// Buttons zum Speichern der Daten (aufrufbar für jede Tabelle)
+document.getElementById("saveButton").onclick = function() {
+    saveTableData("Rossiter");
+    saveTableData("Campbell");
+    saveTableData("Gratton");
+    saveTableData("Raymond");
+    saveTableData("Barrie");
+    saveTableData("Granter");
+    location.reload();
+};
+
+window.onload = function() {
+    loadTableData("Rossiter");
+    loadTableData("Campbell");
+    loadTableData("Gratton");
+    loadTableData("Raymond");
+    loadTableData("Barrie");
+    loadTableData("Granter");
+    const currentDate = new Date();
+    setTimeout(() => {
+
+
+
+ // LPC ROSSITER --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringLpcRossiter = document.getElementById("validityLpcRossiter").innerText;
+                    let validityLpcRossiter = +ValidityStringLpcRossiter;
+                     
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateLpcRossiter(date, months) {
+                        let newDateLpcRossiter = new Date(document.getElementById("lastCheckLpcRossiter").innerText);
+                        newDateLpcRossiter.setMonth(newDateLpcRossiter.getMonth() + months);
+                        return newDateLpcRossiter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckLpcRossiter = new Date(document.getElementById("lastCheckLpcRossiter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateLpcRossiter = addMonthsToDateLpcRossiter(LastCheckLpcRossiter, validityLpcRossiter);
+                    document.getElementById("newExpiryDateLpcRossiter").innerText = NewExpiryDateLpcRossiter.toLocaleDateString();
+           
+                    const remainingTimeLpcRossiter = NewExpiryDateLpcRossiter - currentDate;
+                    const remainingDaysLpcRossiter = Math.floor(remainingTimeLpcRossiter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysLpcRossiter").innerText = remainingDaysLpcRossiter;
+                    if (remainingDaysLpcRossiter < 60 && !document.getElementById("emailSentLpcRossiter").checked) {
+                      const recipient = 'mark.rossiter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - ATPL license';
+                      const body = 'Your ATPL is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentLpcRossiter").checked = true;
+                    }
+
+// LPC ROSSITER --------Ende---------------------------------------------
+
+
+// MEDICAL ROSSITER --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringMedicalRossiter = document.getElementById("validityMedicalRossiter").innerText;
+                    let validityMedicalRossiter = +ValidityStringMedicalRossiter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateMedicalRossiter(date, months) {
+                        let newDateMedicalRossiter = new Date(document.getElementById("lastCheckMedicalRossiter").innerText);
+                        newDateMedicalRossiter.setMonth(newDateMedicalRossiter.getMonth() + months);
+                        return newDateMedicalRossiter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckMedicalRossiter = new Date(document.getElementById("lastCheckMedicalRossiter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateMedicalRossiter = addMonthsToDateMedicalRossiter(LastCheckMedicalRossiter, validityMedicalRossiter);
+                    document.getElementById("newExpiryDateMedicalRossiter").innerText = NewExpiryDateMedicalRossiter.toLocaleDateString();
+              
+                    const remainingTimeMedicalRossiter = NewExpiryDateMedicalRossiter - currentDate;
+                    const remainingDaysMedicalRossiter = Math.floor(remainingTimeMedicalRossiter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysMedicalRossiter").innerText = remainingDaysMedicalRossiter;
+                    if (remainingDaysMedicalRossiter < 60 && !document.getElementById("emailSentMedicalRossiter").checked) {
+                      const recipient = 'mark.rossiter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - Medical license';
+                      const body = 'Your Medical is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentMedicalRossiter").checked = true;
+                    }
+
+// MEDICAL ROSSITER --------Ende---------------------------------------------
+
+
+// CASA FPC ROSSITER --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFpcRossiter = document.getElementById("validityFpcRossiter").innerText;
+                    let validityFpcRossiter = +ValidityStringFpcRossiter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFpcRossiter(date, months) {
+                        let newDateFpcRossiter = new Date(document.getElementById("lastCheckFpcRossiter").innerText);
+                        newDateFpcRossiter.setMonth(newDateFpcRossiter.getMonth() + months);
+                        return newDateFpcRossiter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFpcRossiter = new Date(document.getElementById("lastCheckFpcRossiter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFpcRossiter = addMonthsToDateFpcRossiter(LastCheckFpcRossiter, validityFpcRossiter);
+                    document.getElementById("newExpiryDateFpcRossiter").innerText = NewExpiryDateFpcRossiter.toLocaleDateString();
+           
+                    const remainingTimeFpcRossiter = NewExpiryDateFpcRossiter - currentDate;
+                    const remainingDaysFpcRossiter = Math.floor(remainingTimeFpcRossiter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFpcRossiter").innerText = remainingDaysFpcRossiter;
+                    if (remainingDaysFpcRossiter < 60 && !document.getElementById("emailSentFpcRossiter").checked) {
+                      const recipient = 'mark.rossiter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - CASA FPC license';
+                      const body = 'Your CASA FPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFpcRossiter").checked = true;
+                    }
+
+// CASA FPC ROSSITER --------Ende---------------------------------------------   
+
+
+// S&P ROSSITER --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringSpRossiter = document.getElementById("validitySpRossiter").innerText;
+                    let validitySpRossiter = +ValidityStringSpRossiter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateSpRossiter(date, months) {
+                        let newDateSpRossiter = new Date(document.getElementById("lastCheckSpRossiter").innerText);
+                        newDateSpRossiter.setMonth(newDateSpRossiter.getMonth() + months);
+                        return newDateSpRossiter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckSpRossiter = new Date(document.getElementById("lastCheckSpRossiter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateSpRossiter = addMonthsToDateSpRossiter(LastCheckSpRossiter, validitySpRossiter);
+                    document.getElementById("newExpiryDateSpRossiter").innerText = NewExpiryDateSpRossiter.toLocaleDateString();
+           
+                    const remainingTimeSpRossiter = NewExpiryDateSpRossiter - currentDate;
+                    const remainingDaysSpRossiter = Math.floor(remainingTimeSpRossiter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysSpRossiter").innerText = remainingDaysSpRossiter;
+                    if (remainingDaysSpRossiter < 60 && !document.getElementById("emailSentSpRossiter").checked) {
+                      const recipient = 'mark.rossiter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - S & P license';
+                      const body = 'Your S & P is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentSpRossiter").checked = true;
+                    }
+
+// S&P ROSSITER --------Ende---------------------------------------------
+
+
+// EPC ROSSITER --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringEpcRossiter = document.getElementById("validityEpcRossiter").innerText;
+                    let validityEpcRossiter = +ValidityStringEpcRossiter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateEpcRossiter(date, months) {
+                        let newDateEpcRossiter = new Date(document.getElementById("lastCheckEpcRossiter").innerText);
+                        newDateEpcRossiter.setMonth(newDateEpcRossiter.getMonth() + months);
+                        return newDateEpcRossiter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckEpcRossiter = new Date(document.getElementById("lastCheckEpcRossiter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateEpcRossiter = addMonthsToDateEpcRossiter(LastCheckEpcRossiter, validityEpcRossiter);
+                    document.getElementById("newExpiryDateEpcRossiter").innerText = NewExpiryDateEpcRossiter.toLocaleDateString();
+           
+                    const remainingTimeEpcRossiter = NewExpiryDateEpcRossiter - currentDate;
+                    const remainingDaysEpcRossiter = Math.floor(remainingTimeEpcRossiter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysEpcRossiter").innerText = remainingDaysEpcRossiter;
+                    if (remainingDaysEpcRossiter < 60 && !document.getElementById("emailSentEpcRossiter").checked) {
+                      const recipient = 'mark.rossiter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - EPC license';
+                      const body = 'Your EPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentEpcRossiter").checked = true;
+                    }
+
+// EPC ROSSITER --------Ende---------------------------------------------
+
+
+// FER PDP ROSSITER --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFerPdpRossiter = document.getElementById("validityFerPdpRossiter").innerText;
+                    let validityFerPdpRossiter = +ValidityStringFerPdpRossiter;
+
+// diese function addiert die Monate zu dem Datum
+
+                    function addMonthsToDateFerPdpRossiter(date, months) {
+                        let newDateFerPdpRossiter = new Date(document.getElementById("lastCheckFerPdpRossiter").innerText);
+                        newDateFerPdpRossiter.setMonth(newDateFerPdpRossiter.getMonth() + months);
+                        return newDateFerPdpRossiter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFerPdpRossiter = new Date(document.getElementById("lastCheckFerPdpRossiter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFerPdpRossiter = addMonthsToDateFerPdpRossiter(LastCheckFerPdpRossiter, validityFerPdpRossiter);
+                    document.getElementById("newExpiryDateFerPdpRossiter").innerText = NewExpiryDateFerPdpRossiter.toLocaleDateString();
+           
+                    const remainingTimeFerPdpRossiter = NewExpiryDateFerPdpRossiter - currentDate;
+                    const remainingDaysFerPdpRossiter = Math.floor(remainingTimeFerPdpRossiter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFerPdpRossiter").innerText = remainingDaysFerPdpRossiter;
+                    if (remainingDaysFerPdpRossiter < 60 && !document.getElementById("emailSentFerPdpRossiter").checked) {
+                      const recipient = 'mark.rossiter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FER PDP license';
+                      const body = 'Your FER PDP is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFerPdpRossiter").checked = true;
+                    }
+
+// FER PDP ROSSITER --------Ende---------------------------------------------   
+
+
+// FFS ROSSITER --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFfsRossiter = document.getElementById("validityFfsRossiter").innerText;
+                    let validityFfsRossiter = +ValidityStringFfsRossiter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFfsRossiter(date, months) {
+                        let newDateFfsRossiter = new Date(document.getElementById("lastCheckFfsRossiter").innerText);
+                        newDateFfsRossiter.setMonth(newDateFfsRossiter.getMonth() + months);
+                        return newDateFfsRossiter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFfsRossiter = new Date(document.getElementById("lastCheckFfsRossiter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFfsRossiter = addMonthsToDateFfsRossiter(LastCheckFfsRossiter, validityFfsRossiter);
+                    document.getElementById("newExpiryDateFfsRossiter").innerText = NewExpiryDateFfsRossiter.toLocaleDateString();
+ 
+                    const remainingTimeFfsRossiter = NewExpiryDateFfsRossiter - currentDate;
+                    const remainingDaysFfsRossiter = Math.floor(remainingTimeFfsRossiter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFfsRossiter").innerText = remainingDaysFfsRossiter;
+                    if (remainingDaysFfsRossiter < 60 && !document.getElementById("emailSentFfsRossiter").checked) {
+                      const recipient = 'mark.rossiter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FFS currency license';
+                      const body = 'Your FFS currency is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFfsRossiter").checked = true;
+                    }
+
+// FFS ROSSITER --------Ende---------------------------------------------
+
+
+// IPPM ROSSITER --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringIppmRossiter = document.getElementById("validityIppmRossiter").innerText;
+                    let validityIppmRossiter = +ValidityStringIppmRossiter;
+
+// diese function addiert die Monate zu dem Datum
+
+                    function addMonthsToDateIppmRossiter(date, months) {
+                        let newDateIppmRossiter = new Date(document.getElementById("lastCheckIppmRossiter").innerText);
+                        newDateIppmRossiter.setMonth(newDateIppmRossiter.getMonth() + months);
+                        return newDateIppmRossiter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIppmRossiter = new Date(document.getElementById("lastCheckIppmRossiter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIppmRossiter = addMonthsToDateIppmRossiter(LastCheckIppmRossiter, validityIppmRossiter);
+                    document.getElementById("newExpiryDateIppmRossiter").innerText = NewExpiryDateIppmRossiter.toLocaleDateString();
+           
+                    const remainingTimeIppmRossiter = NewExpiryDateIppmRossiter - currentDate;
+                    const remainingDaysIppmRossiter = Math.floor(remainingTimeIppmRossiter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIppmRossiter").innerText = remainingDaysIppmRossiter;
+                    if (remainingDaysIppmRossiter < 60 && !document.getElementById("emailSentIppmRossiter").checked) {
+                      const recipient = 'mark.rossiter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPPM license';
+                      const body = 'Your IPPM is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIppmRossiter").checked = true;
+                    }
+
+// IPPM ROSSITER --------Ende---------------------------------------------
+
+// IPC ROSSITER --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringIpcRossiter = document.getElementById("validityIpcRossiter").innerText;
+                    let validityIpcRossiter = +ValidityStringIpcRossiter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIpcRossiter(date, months) {
+                        let newDateIpcRossiter = new Date(document.getElementById("lastCheckIpcRossiter").innerText);
+                        newDateIpcRossiter.setMonth(newDateIpcRossiter.getMonth() + months);
+                        return newDateIpcRossiter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIpcRossiter = new Date(document.getElementById("lastCheckIpcRossiter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIpcRossiter = addMonthsToDateIpcRossiter(LastCheckIpcRossiter, validityIpcRossiter);
+                    document.getElementById("newExpiryDateIpcRossiter").innerText = NewExpiryDateIpcRossiter.toLocaleDateString();
+           
+                    const remainingTimeIpcRossiter = NewExpiryDateIpcRossiter - currentDate;
+                    const remainingDaysIpcRossiter = Math.floor(remainingTimeIpcRossiter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIpcRossiter").innerText = remainingDaysIpcRossiter;
+                    if (remainingDaysIpcRossiter < 60 && !document.getElementById("emailSentIpcRossiter").checked) {
+                      const recipient = 'mark.rossiter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPC license';
+                      const body = 'Your IPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIpcRossiter").checked = true;
+                    }
+
+// IPC ROSSITER --------Ende---------------------------------------------
+
+// =======================================================================
+
+// LPC Campbell --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringLpcCampbell = document.getElementById("validityLpcCampbell").innerText;
+                    let validityLpcCampbell = +ValidityStringLpcCampbell;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateLpcCampbell(date, months) {
+                        let newDateLpcCampbell = new Date(document.getElementById("lastCheckLpcCampbell").innerText);
+                        newDateLpcCampbell.setMonth(newDateLpcCampbell.getMonth() + months);
+                        return newDateLpcCampbell;
+                    }
+
+// Berechnung: Last Check + "validityMedicalCampbell" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckLpcCampbell = new Date(document.getElementById("lastCheckLpcCampbell").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateLpcCampbell = addMonthsToDateLpcCampbell(LastCheckLpcCampbell, validityLpcCampbell);
+                    document.getElementById("newExpiryDateLpcCampbell").innerText = NewExpiryDateLpcCampbell.toLocaleDateString();
+
+                    const remainingTimeLpcCampbell = NewExpiryDateLpcCampbell - currentDate;
+                    const remainingDaysLpcCampbell = Math.floor(remainingTimeLpcCampbell / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysLpcCampbell").innerText = remainingDaysLpcCampbell;
+                    if (remainingDaysLpcCampbell < 60 && !document.getElementById("emailSentLpcCampbell").checked) {
+                      const recipient = 'alexander.campbell@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - LPC license';
+                      const body = 'Your LPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentLpcCampbell").checked = true;
+                    }
+
+// LPC Campbell --------Ende---------------------------------------------
+
+
+// MEDICAL Campbell --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringMedicalCampbell = document.getElementById("validityMedicalCampbell").innerText;
+                    let validityMedicalCampbell = +ValidityStringMedicalCampbell;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateMedicalCampbell(date, months) {
+                        let newDateMedicalCampbell = new Date(document.getElementById("lastCheckMedicalCampbell").innerText);
+                        newDateMedicalCampbell.setMonth(newDateMedicalCampbell.getMonth() + months);
+                        return newDateMedicalCampbell;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckMedicalCampbell = new Date(document.getElementById("lastCheckMedicalCampbell").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateMedicalCampbell = addMonthsToDateMedicalCampbell(LastCheckMedicalCampbell, validityMedicalCampbell);
+                    document.getElementById("newExpiryDateMedicalCampbell").innerText = NewExpiryDateMedicalCampbell.toLocaleDateString();
+            
+                    const remainingTimeMedicalCampbell = NewExpiryDateMedicalCampbell - currentDate;
+                    const remainingDaysMedicalCampbell = Math.floor(remainingTimeMedicalCampbell / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysMedicalCampbell").innerText = remainingDaysMedicalCampbell;
+                    if (remainingDaysMedicalCampbell < 60 && !document.getElementById("emailSentMedicalCampbell").checked) {
+                      const recipient = 'alexander.campbell@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - Medical license';
+                      const body = 'Your Medical is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentMedicalCampbell").checked = true;
+                    }
+
+// MEDICAL Campbell --------Ende---------------------------------------------
+
+
+// CASA FPC Campbell --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFpcCampbell = document.getElementById("validityFpcCampbell").innerText;
+                    let validityFpcCampbell = +ValidityStringFpcCampbell;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFpcCampbell(date, months) {
+                        let newDateFpcCampbell = new Date(document.getElementById("lastCheckFpcCampbell").innerText);
+                        newDateFpcCampbell.setMonth(newDateFpcCampbell.getMonth() + months);
+                        return newDateFpcCampbell;
+                    }
+
+// Berechnung: Last Check + "validityMedicalCampbell" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFpcCampbell = new Date(document.getElementById("lastCheckFpcCampbell").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFpcCampbell = addMonthsToDateFpcCampbell(LastCheckFpcCampbell, validityFpcCampbell);
+                    document.getElementById("newExpiryDateFpcCampbell").innerText = NewExpiryDateFpcCampbell.toLocaleDateString();
+
+                    const remainingTimeFpcCampbell = NewExpiryDateFpcCampbell - currentDate;
+                    const remainingDaysFpcCampbell = Math.floor(remainingTimeFpcCampbell / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFpcCampbell").innerText = remainingDaysFpcCampbell;
+                    if (remainingDaysFpcCampbell < 60 && !document.getElementById("emailSentFpcCampbell").checked) {
+                      const recipient = 'alexander.campbell@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FPC license';
+                      const body = 'Your FPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFpcCampbell").checked = true;
+                    }
+
+// CASA FPC Campbell --------Ende---------------------------------------------   
+
+
+// S&P Campbell --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringSpCampbell = document.getElementById("validitySpCampbell").innerText;
+                    let validitySpCampbell = +ValidityStringSpCampbell;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateSpCampbell(date, months) {
+                        let newDateSpCampbell = new Date(document.getElementById("lastCheckSpCampbell").innerText);
+                        newDateSpCampbell.setMonth(newDateSpCampbell.getMonth() + months);
+                        return newDateSpCampbell;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckSpCampbell = new Date(document.getElementById("lastCheckSpCampbell").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateSpCampbell = addMonthsToDateSpCampbell(LastCheckSpCampbell, validitySpCampbell);
+                    document.getElementById("newExpiryDateSpCampbell").innerText = NewExpiryDateSpCampbell.toLocaleDateString();
+            
+                    const remainingTimeSpCampbell = NewExpiryDateSpCampbell - currentDate;
+                    const remainingDaysSpCampbell = Math.floor(remainingTimeSpCampbell / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysSpCampbell").innerText = remainingDaysSpCampbell;
+                    if (remainingDaysSpCampbell < 60 && !document.getElementById("emailSentSpCampbell").checked) {
+                      const recipient = 'alexander.campbell@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - S & P license';
+                      const body = 'Your S & P is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentSpCampbell").checked = true;
+                    }
+
+// S&P Campbell --------Ende---------------------------------------------
+
+
+// EPC Campbell --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringEpcCampbell = document.getElementById("validityEpcCampbell").innerText;
+                    let validityEpcCampbell = +ValidityStringEpcCampbell;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateEpcCampbell(date, months) {
+                        let newDateEpcCampbell = new Date(document.getElementById("lastCheckEpcCampbell").innerText);
+                        newDateEpcCampbell.setMonth(newDateEpcCampbell.getMonth() + months);
+                        return newDateEpcCampbell;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckEpcCampbell = new Date(document.getElementById("lastCheckEpcCampbell").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateEpcCampbell = addMonthsToDateEpcCampbell(LastCheckEpcCampbell, validityEpcCampbell);
+                    document.getElementById("newExpiryDateEpcCampbell").innerText = NewExpiryDateEpcCampbell.toLocaleDateString();
+            
+                    const remainingTimeEpcCampbell = NewExpiryDateEpcCampbell - currentDate;
+                    const remainingDaysEpcCampbell = Math.floor(remainingTimeEpcCampbell / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysEpcCampbell").innerText = remainingDaysEpcCampbell;
+                    if (remainingDaysEpcCampbell < 60 && !document.getElementById("emailSentEpcCampbell").checked) {
+                      const recipient = 'alexander.campbell@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - EPC license';
+                      const body = 'Your EPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentEpcCampbell").checked = true;
+                    }
+
+// EPC Campbell --------Ende---------------------------------------------
+
+
+// FER PDP Campbell --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFerPdpCampbell = document.getElementById("validityFerPdpCampbell").innerText;
+                    let validityFerPdpCampbell = +ValidityStringFerPdpCampbell;
+           
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFerPdpCampbell(date, months) {
+                        let newDateFerPdpCampbell = new Date(document.getElementById("lastCheckFerPdpCampbell").innerText);
+                        newDateFerPdpCampbell.setMonth(newDateFerPdpCampbell.getMonth() + months);
+                        return newDateFerPdpCampbell;
+                    }
+
+// Berechnung: Last Check + "validityMedicalCampbell" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFerPdpCampbell = new Date(document.getElementById("lastCheckFerPdpCampbell").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFerPdpCampbell = addMonthsToDateFerPdpCampbell(LastCheckFerPdpCampbell, validityFerPdpCampbell);
+                    document.getElementById("newExpiryDateFerPdpCampbell").innerText = NewExpiryDateFerPdpCampbell.toLocaleDateString();
+            
+                    const remainingTimeFerPdpCampbell = NewExpiryDateFerPdpCampbell - currentDate;
+                    const remainingDaysFerPdpCampbell = Math.floor(remainingTimeFerPdpCampbell / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFerPdpCampbell").innerText = remainingDaysFerPdpCampbell;
+                    if (remainingDaysFerPdpCampbell < 60 && !document.getElementById("emailSentFerPdpCampbell").checked) {
+                      const recipient = 'alexander.campbell@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FER PDP license';
+                      const body = 'Your FER PDP is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFerPdpCampbell").checked = true;
+                    }
+
+// FER PDP Campbell --------Ende---------------------------------------------   
+
+
+// FFS Campbell --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFfsCampbell = document.getElementById("validityFfsCampbell").innerText;
+                    let validityFfsCampbell = +ValidityStringFfsCampbell;
+                        
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFfsCampbell(date, months) {
+                        let newDateFfsCampbell = new Date(document.getElementById("lastCheckFfsCampbell").innerText);
+                        newDateFfsCampbell.setMonth(newDateFfsCampbell.getMonth() + months);
+                        return newDateFfsCampbell;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFfsCampbell = new Date(document.getElementById("lastCheckFfsCampbell").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFfsCampbell = addMonthsToDateFfsCampbell(LastCheckFfsCampbell, validityFfsCampbell);
+                    document.getElementById("newExpiryDateFfsCampbell").innerText = NewExpiryDateFfsCampbell.toLocaleDateString();
+        
+                    const remainingTimeFfsCampbell = NewExpiryDateFfsCampbell - currentDate;
+                    const remainingDaysFfsCampbell = Math.floor(remainingTimeFfsCampbell / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFfsCampbell").innerText = remainingDaysFfsCampbell;
+                    if (remainingDaysFfsCampbell < 60 && !document.getElementById("emailSentFfsCampbell").checked) {
+                      const recipient = 'alexander.campbell@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FFS currency license';
+                      const body = 'Your FFS currency is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFfsCampbell").checked = true;
+                    }
+
+// FFS Campbell --------Ende---------------------------------------------
+
+
+// IPPM Campbell --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringIppmCampbell = document.getElementById("validityIppmCampbell").innerText;
+                    let validityIppmCampbell = +ValidityStringIppmCampbell;
+    
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIppmCampbell(date, months) {
+                        let newDateIppmCampbell = new Date(document.getElementById("lastCheckIppmCampbell").innerText);
+                        newDateIppmCampbell.setMonth(newDateIppmCampbell.getMonth() + months);
+                        return newDateIppmCampbell;
+                    }
+
+// Berechnung: Last Check + "validity" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIppmCampbell = new Date(document.getElementById("lastCheckIppmCampbell").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIppmCampbell = addMonthsToDateIppmCampbell(LastCheckIppmCampbell, validityIppmCampbell);
+                    document.getElementById("newExpiryDateIppmCampbell").innerText = NewExpiryDateIppmCampbell.toLocaleDateString();
+      
+                    const remainingTimeIppmCampbell = NewExpiryDateIppmCampbell - currentDate;
+                    const remainingDaysIppmCampbell = Math.floor(remainingTimeIppmCampbell / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIppmCampbell").innerText = remainingDaysIppmCampbell;
+                    if (remainingDaysIppmCampbell < 60 && !document.getElementById("emailSentIppmCampbell").checked) {
+                      const recipient = 'alexander.campbell@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPPM license';
+                      const body = 'Your IPPM is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIppmCampbell").checked = true;
+                    }
+
+// IPPM Campbell --------Ende---------------------------------------------
+
+// IPC Campbell --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringIpcCampbell = document.getElementById("validityIpcCampbell").innerText;
+                    let validityIpcCampbell = +ValidityStringIpcCampbell;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIpcCampbell(date, months) {
+                        let newDateIpcCampbell = new Date(document.getElementById("lastCheckIpcCampbell").innerText);
+                        newDateIpcCampbell.setMonth(newDateIpcCampbell.getMonth() + months);
+                        return newDateIpcCampbell;
+                    }
+
+// Berechnung: Last Check + "validityMedicalCampbell" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIpcCampbell = new Date(document.getElementById("lastCheckIpcCampbell").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIpcCampbell = addMonthsToDateIpcCampbell(LastCheckIpcCampbell, validityIpcCampbell);
+                    document.getElementById("newExpiryDateIpcCampbell").innerText = NewExpiryDateIpcCampbell.toLocaleDateString();
+           
+                    const remainingTimeIpcCampbell = NewExpiryDateIpcCampbell - currentDate;
+                    const remainingDaysIpcCampbell = Math.floor(remainingTimeIpcCampbell / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIpcCampbell").innerText = remainingDaysIpcCampbell;
+                    if (remainingDaysIpcCampbell < 60 && !document.getElementById("emailSentIpcCampbell").checked) {
+                      const recipient = 'alexander.campbell@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPC license';
+                      const body = 'Your IPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIpcCampbell").checked = true;
+                    }
+
+// IPC Campbell --------Ende---------------------------------------------
+
+// =======================================================================
+
+// LPC Gratton --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringLpcGratton = document.getElementById("validityLpcGratton").innerText;
+                    let validityLpcGratton = +ValidityStringLpcGratton;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateLpcGratton(date, months) {
+                        let newDateLpcGratton = new Date(document.getElementById("lastCheckLpcGratton").innerText);
+                        newDateLpcGratton.setMonth(newDateLpcGratton.getMonth() + months);
+                        return newDateLpcGratton;
+                    }
+
+// Berechnung: Last Check + "validityMedicalGratton" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckLpcGratton = new Date(document.getElementById("lastCheckLpcGratton").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateLpcGratton = addMonthsToDateLpcGratton(LastCheckLpcGratton, validityLpcGratton);
+                    document.getElementById("newExpiryDateLpcGratton").innerText = NewExpiryDateLpcGratton.toLocaleDateString();
+
+                    const remainingTimeLpcGratton = NewExpiryDateLpcGratton - currentDate;
+                    const remainingDaysLpcGratton = Math.floor(remainingTimeLpcGratton / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysLpcGratton").innerText = remainingDaysLpcGratton;
+                    if (remainingDaysLpcGratton < 60 && !document.getElementById("emailSentLpcGratton").checked) {
+                      const recipient = 'jeanmarc.gratton@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - LPC license';
+                      const body = 'Your LPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentLpcGratton").checked = true;
+                    }
+
+// LPC Gratton --------Ende---------------------------------------------
+
+
+// MEDICAL Gratton --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringMedicalGratton = document.getElementById("validityMedicalGratton").innerText;
+                    let validityMedicalGratton = +ValidityStringMedicalGratton;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateMedicalGratton(date, months) {
+                        let newDateMedicalGratton = new Date(document.getElementById("lastCheckMedicalGratton").innerText);
+                        newDateMedicalGratton.setMonth(newDateMedicalGratton.getMonth() + months);
+                        return newDateMedicalGratton;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckMedicalGratton = new Date(document.getElementById("lastCheckMedicalGratton").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateMedicalGratton = addMonthsToDateMedicalGratton(LastCheckMedicalGratton, validityMedicalGratton);
+                    document.getElementById("newExpiryDateMedicalGratton").innerText = NewExpiryDateMedicalGratton.toLocaleDateString();
+            
+                    const remainingTimeMedicalGratton = NewExpiryDateMedicalGratton - currentDate;
+                    const remainingDaysMedicalGratton = Math.floor(remainingTimeMedicalGratton / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysMedicalGratton").innerText = remainingDaysMedicalGratton;
+                    if (remainingDaysMedicalGratton < 60 && !document.getElementById("emailSentMedicalGratton").checked) {
+                      const recipient = 'jeanmarc.gratton@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - Medical license';
+                      const body = 'Your Medical is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentMedicalGratton").checked = true;
+                    }
+
+// MEDICAL Gratton --------Ende---------------------------------------------
+
+
+// CASA FPC Gratton --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFpcGratton = document.getElementById("validityFpcGratton").innerText;
+                    let validityFpcGratton = +ValidityStringFpcGratton;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFpcGratton(date, months) {
+                        let newDateFpcGratton = new Date(document.getElementById("lastCheckFpcGratton").innerText);
+                        newDateFpcGratton.setMonth(newDateFpcGratton.getMonth() + months);
+                        return newDateFpcGratton;
+                    }
+
+// Berechnung: Last Check + "validityMedicalGratton" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFpcGratton = new Date(document.getElementById("lastCheckFpcGratton").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFpcGratton = addMonthsToDateFpcGratton(LastCheckFpcGratton, validityFpcGratton);
+                    document.getElementById("newExpiryDateFpcGratton").innerText = NewExpiryDateFpcGratton.toLocaleDateString();
+
+                    const remainingTimeFpcGratton = NewExpiryDateFpcGratton - currentDate;
+                    const remainingDaysFpcGratton = Math.floor(remainingTimeFpcGratton / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFpcGratton").innerText = remainingDaysFpcGratton;
+                    if (remainingDaysFpcGratton < 60 && !document.getElementById("emailSentFpcGratton").checked) {
+                      const recipient = 'jeanmarc.gratton@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FPC license';
+                      const body = 'Your FPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFpcGratton").checked = true;
+                    }
+
+// CASA FPC Gratton --------Ende---------------------------------------------   
+
+
+// S&P Gratton --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringSpGratton = document.getElementById("validitySpGratton").innerText;
+                    let validitySpGratton = +ValidityStringSpGratton;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateSpGratton(date, months) {
+                        let newDateSpGratton = new Date(document.getElementById("lastCheckSpGratton").innerText);
+                        newDateSpGratton.setMonth(newDateSpGratton.getMonth() + months);
+                        return newDateSpGratton;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckSpGratton = new Date(document.getElementById("lastCheckSpGratton").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateSpGratton = addMonthsToDateSpGratton(LastCheckSpGratton, validitySpGratton);
+                    document.getElementById("newExpiryDateSpGratton").innerText = NewExpiryDateSpGratton.toLocaleDateString();
+            
+                    const remainingTimeSpGratton = NewExpiryDateSpGratton - currentDate;
+                    const remainingDaysSpGratton = Math.floor(remainingTimeSpGratton / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysSpGratton").innerText = remainingDaysSpGratton;
+                    if (remainingDaysSpGratton < 60 && !document.getElementById("emailSentSpGratton").checked) {
+                      const recipient = 'jeanmarc.gratton@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - S & P license';
+                      const body = 'Your S & P is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentSpGratton").checked = true;
+                    }
+
+// S&P Gratton --------Ende---------------------------------------------
+
+
+// EPC Gratton --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringEpcGratton = document.getElementById("validityEpcGratton").innerText;
+                    let validityEpcGratton = +ValidityStringEpcGratton;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateEpcGratton(date, months) {
+                        let newDateEpcGratton = new Date(document.getElementById("lastCheckEpcGratton").innerText);
+                        newDateEpcGratton.setMonth(newDateEpcGratton.getMonth() + months);
+                        return newDateEpcGratton;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckEpcGratton = new Date(document.getElementById("lastCheckEpcGratton").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateEpcGratton = addMonthsToDateEpcGratton(LastCheckEpcGratton, validityEpcGratton);
+                    document.getElementById("newExpiryDateEpcGratton").innerText = NewExpiryDateEpcGratton.toLocaleDateString();
+            
+                    const remainingTimeEpcGratton = NewExpiryDateEpcGratton - currentDate;
+                    const remainingDaysEpcGratton = Math.floor(remainingTimeEpcGratton / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysEpcGratton").innerText = remainingDaysEpcGratton;
+                    if (remainingDaysEpcGratton < 60 && !document.getElementById("emailSentEpcGratton").checked) {
+                      const recipient = 'jeanmarc.gratton@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - EPC license';
+                      const body = 'Your EPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentEpcGratton").checked = true;
+                    }
+
+// EPC Gratton --------Ende---------------------------------------------
+
+
+// FER PDP Gratton --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFerPdpGratton = document.getElementById("validityFerPdpGratton").innerText;
+                    let validityFerPdpGratton = +ValidityStringFerPdpGratton;
+           
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFerPdpGratton(date, months) {
+                        let newDateFerPdpGratton = new Date(document.getElementById("lastCheckFerPdpGratton").innerText);
+                        newDateFerPdpGratton.setMonth(newDateFerPdpGratton.getMonth() + months);
+                        return newDateFerPdpGratton;
+                    }
+
+// Berechnung: Last Check + "validityMedicalGratton" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFerPdpGratton = new Date(document.getElementById("lastCheckFerPdpGratton").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFerPdpGratton = addMonthsToDateFerPdpGratton(LastCheckFerPdpGratton, validityFerPdpGratton);
+                    document.getElementById("newExpiryDateFerPdpGratton").innerText = NewExpiryDateFerPdpGratton.toLocaleDateString();
+            
+                    const remainingTimeFerPdpGratton = NewExpiryDateFerPdpGratton - currentDate;
+                    const remainingDaysFerPdpGratton = Math.floor(remainingTimeFerPdpGratton / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFerPdpGratton").innerText = remainingDaysFerPdpGratton;
+                    if (remainingDaysFerPdpGratton < 60 && !document.getElementById("emailSentFerPdpGratton").checked) {
+                      const recipient = 'jeanmarc.gratton@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FER PDP license';
+                      const body = 'Your FER PDP is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFerPdpGratton").checked = true;
+                    }
+
+// FER PDP Gratton --------Ende---------------------------------------------   
+
+
+// FFS Gratton --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFfsGratton = document.getElementById("validityFfsGratton").innerText;
+                    let validityFfsGratton = +ValidityStringFfsGratton;
+                        
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFfsGratton(date, months) {
+                        let newDateFfsGratton = new Date(document.getElementById("lastCheckFfsGratton").innerText);
+                        newDateFfsGratton.setMonth(newDateFfsGratton.getMonth() + months);
+                        return newDateFfsGratton;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFfsGratton = new Date(document.getElementById("lastCheckFfsGratton").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFfsGratton = addMonthsToDateFfsGratton(LastCheckFfsGratton, validityFfsGratton);
+                    document.getElementById("newExpiryDateFfsGratton").innerText = NewExpiryDateFfsGratton.toLocaleDateString();
+        
+                    const remainingTimeFfsGratton = NewExpiryDateFfsGratton - currentDate;
+                    const remainingDaysFfsGratton = Math.floor(remainingTimeFfsGratton / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFfsGratton").innerText = remainingDaysFfsGratton;
+                    if (remainingDaysFfsGratton < 60 && !document.getElementById("emailSentFfsGratton").checked) {
+                      const recipient = 'jeanmarc.gratton@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FFS currency license';
+                      const body = 'Your FFS currency is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFfsGratton").checked = true;
+                    }
+
+// FFS Gratton --------Ende---------------------------------------------
+
+
+// IPPM Gratton --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringIppmGratton = document.getElementById("validityIppmGratton").innerText;
+                    let validityIppmGratton = +ValidityStringIppmGratton;
+    
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIppmGratton(date, months) {
+                        let newDateIppmGratton = new Date(document.getElementById("lastCheckIppmGratton").innerText);
+                        newDateIppmGratton.setMonth(newDateIppmGratton.getMonth() + months);
+                        return newDateIppmGratton;
+                    }
+
+// Berechnung: Last Check + "validity" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIppmGratton = new Date(document.getElementById("lastCheckIppmGratton").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIppmGratton = addMonthsToDateIppmGratton(LastCheckIppmGratton, validityIppmGratton);
+                    document.getElementById("newExpiryDateIppmGratton").innerText = NewExpiryDateIppmGratton.toLocaleDateString();
+      
+                    const remainingTimeIppmGratton = NewExpiryDateIppmGratton - currentDate;
+                    const remainingDaysIppmGratton = Math.floor(remainingTimeIppmGratton / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIppmGratton").innerText = remainingDaysIppmGratton;
+                    if (remainingDaysIppmGratton < 60 && !document.getElementById("emailSentIppmGratton").checked) {
+                      const recipient = 'jeanmarc.gratton@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPPM license';
+                      const body = 'Your IPPM is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIppmGratton").checked = true;
+                    }
+
+// IPPM Gratton --------Ende---------------------------------------------
+
+// IPC Gratton --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringIpcGratton = document.getElementById("validityIpcGratton").innerText;
+                    let validityIpcGratton = +ValidityStringIpcGratton;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIpcGratton(date, months) {
+                        let newDateIpcGratton = new Date(document.getElementById("lastCheckIpcGratton").innerText);
+                        newDateIpcGratton.setMonth(newDateIpcGratton.getMonth() + months);
+                        return newDateIpcGratton;
+                    }
+
+// Berechnung: Last Check + "validityMedicalGratton" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIpcGratton = new Date(document.getElementById("lastCheckIpcGratton").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIpcGratton = addMonthsToDateIpcGratton(LastCheckIpcGratton, validityIpcGratton);
+                    document.getElementById("newExpiryDateIpcGratton").innerText = NewExpiryDateIpcGratton.toLocaleDateString();
+           
+                    const remainingTimeIpcGratton = NewExpiryDateIpcGratton - currentDate;
+                    const remainingDaysIpcGratton = Math.floor(remainingTimeIpcGratton / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIpcGratton").innerText = remainingDaysIpcGratton;
+                    if (remainingDaysIpcGratton < 60 && !document.getElementById("emailSentIpcGratton").checked) {
+                      const recipient = 'jeanmarc.gratton@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPC license';
+                      const body = 'Your IPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIpcGratton").checked = true;
+                    }
+
+// IPC Gratton --------Ende---------------------------------------------
+
+// =======================================================================
+
+// LPC Raymond --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringLpcRaymond = document.getElementById("validityLpcRaymond").innerText;
+                    let validityLpcRaymond = +ValidityStringLpcRaymond;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateLpcRaymond(date, months) {
+                        let newDateLpcRaymond = new Date(document.getElementById("lastCheckLpcRaymond").innerText);
+                        newDateLpcRaymond.setMonth(newDateLpcRaymond.getMonth() + months);
+                        return newDateLpcRaymond;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRaymond" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckLpcRaymond = new Date(document.getElementById("lastCheckLpcRaymond").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateLpcRaymond = addMonthsToDateLpcRaymond(LastCheckLpcRaymond, validityLpcRaymond);
+                    document.getElementById("newExpiryDateLpcRaymond").innerText = NewExpiryDateLpcRaymond.toLocaleDateString();
+
+                    const remainingTimeLpcRaymond = NewExpiryDateLpcRaymond - currentDate;
+                    const remainingDaysLpcRaymond = Math.floor(remainingTimeLpcRaymond / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysLpcRaymond").innerText = remainingDaysLpcRaymond;
+                    if (remainingDaysLpcRaymond < 60 && !document.getElementById("emailSentLpcRaymond").checked) {
+                      const recipient = 'ric.raymond@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - LPC license';
+                      const body = 'Your LPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentLpcRaymond").checked = true;
+                    }
+
+// LPC Raymond --------Ende---------------------------------------------
+
+
+// MEDICAL Raymond --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringMedicalRaymond = document.getElementById("validityMedicalRaymond").innerText;
+                    let validityMedicalRaymond = +ValidityStringMedicalRaymond;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateMedicalRaymond(date, months) {
+                        let newDateMedicalRaymond = new Date(document.getElementById("lastCheckMedicalRaymond").innerText);
+                        newDateMedicalRaymond.setMonth(newDateMedicalRaymond.getMonth() + months);
+                        return newDateMedicalRaymond;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckMedicalRaymond = new Date(document.getElementById("lastCheckMedicalRaymond").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateMedicalRaymond = addMonthsToDateMedicalRaymond(LastCheckMedicalRaymond, validityMedicalRaymond);
+                    document.getElementById("newExpiryDateMedicalRaymond").innerText = NewExpiryDateMedicalRaymond.toLocaleDateString();
+            
+                    const remainingTimeMedicalRaymond = NewExpiryDateMedicalRaymond - currentDate;
+                    const remainingDaysMedicalRaymond = Math.floor(remainingTimeMedicalRaymond / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysMedicalRaymond").innerText = remainingDaysMedicalRaymond;
+                    if (remainingDaysMedicalRaymond < 60 && !document.getElementById("emailSentMedicalRaymond").checked) {
+                      const recipient = 'ric.raymond@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - Medical license';
+                      const body = 'Your Medical is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentMedicalRaymond").checked = true;
+                    }
+
+// MEDICAL Raymond --------Ende---------------------------------------------
+
+
+// CASA FPC Raymond --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFpcRaymond = document.getElementById("validityFpcRaymond").innerText;
+                    let validityFpcRaymond = +ValidityStringFpcRaymond;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFpcRaymond(date, months) {
+                        let newDateFpcRaymond = new Date(document.getElementById("lastCheckFpcRaymond").innerText);
+                        newDateFpcRaymond.setMonth(newDateFpcRaymond.getMonth() + months);
+                        return newDateFpcRaymond;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRaymond" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFpcRaymond = new Date(document.getElementById("lastCheckFpcRaymond").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFpcRaymond = addMonthsToDateFpcRaymond(LastCheckFpcRaymond, validityFpcRaymond);
+                    document.getElementById("newExpiryDateFpcRaymond").innerText = NewExpiryDateFpcRaymond.toLocaleDateString();
+
+                    const remainingTimeFpcRaymond = NewExpiryDateFpcRaymond - currentDate;
+                    const remainingDaysFpcRaymond = Math.floor(remainingTimeFpcRaymond / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFpcRaymond").innerText = remainingDaysFpcRaymond;
+                    if (remainingDaysFpcRaymond < 60 && !document.getElementById("emailSentFpcRaymond").checked) {
+                      const recipient = 'ric.raymond@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FPC license';
+                      const body = 'Your FPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFpcRaymond").checked = true;
+                    }
+
+// CASA FPC Raymond --------Ende---------------------------------------------   
+
+
+// S&P Raymond --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringSpRaymond = document.getElementById("validitySpRaymond").innerText;
+                    let validitySpRaymond = +ValidityStringSpRaymond;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateSpRaymond(date, months) {
+                        let newDateSpRaymond = new Date(document.getElementById("lastCheckSpRaymond").innerText);
+                        newDateSpRaymond.setMonth(newDateSpRaymond.getMonth() + months);
+                        return newDateSpRaymond;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckSpRaymond = new Date(document.getElementById("lastCheckSpRaymond").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateSpRaymond = addMonthsToDateSpRaymond(LastCheckSpRaymond, validitySpRaymond);
+                    document.getElementById("newExpiryDateSpRaymond").innerText = NewExpiryDateSpRaymond.toLocaleDateString();
+            
+                    const remainingTimeSpRaymond = NewExpiryDateSpRaymond - currentDate;
+                    const remainingDaysSpRaymond = Math.floor(remainingTimeSpRaymond / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysSpRaymond").innerText = remainingDaysSpRaymond;
+                    if (remainingDaysSpRaymond < 60 && !document.getElementById("emailSentSpRaymond").checked) {
+                      const recipient = 'ric.raymond@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - S & P license';
+                      const body = 'Your S & P is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentSpRaymond").checked = true;
+                    }
+
+// S&P Raymond --------Ende---------------------------------------------
+
+
+// EPC Raymond --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringEpcRaymond = document.getElementById("validityEpcRaymond").innerText;
+                    let validityEpcRaymond = +ValidityStringEpcRaymond;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateEpcRaymond(date, months) {
+                        let newDateEpcRaymond = new Date(document.getElementById("lastCheckEpcRaymond").innerText);
+                        newDateEpcRaymond.setMonth(newDateEpcRaymond.getMonth() + months);
+                        return newDateEpcRaymond;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckEpcRaymond = new Date(document.getElementById("lastCheckEpcRaymond").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateEpcRaymond = addMonthsToDateEpcRaymond(LastCheckEpcRaymond, validityEpcRaymond);
+                    document.getElementById("newExpiryDateEpcRaymond").innerText = NewExpiryDateEpcRaymond.toLocaleDateString();
+            
+                    const remainingTimeEpcRaymond = NewExpiryDateEpcRaymond - currentDate;
+                    const remainingDaysEpcRaymond = Math.floor(remainingTimeEpcRaymond / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysEpcRaymond").innerText = remainingDaysEpcRaymond;
+                    if (remainingDaysEpcRaymond < 60 && !document.getElementById("emailSentEpcRaymond").checked) {
+                      const recipient = 'ric.raymond@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - EPC license';
+                      const body = 'Your EPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentEpcRaymond").checked = true;
+                    }
+
+// EPC Raymond --------Ende---------------------------------------------
+
+
+// FER PDP Raymond --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFerPdpRaymond = document.getElementById("validityFerPdpRaymond").innerText;
+                    let validityFerPdpRaymond = +ValidityStringFerPdpRaymond;
+           
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFerPdpRaymond(date, months) {
+                        let newDateFerPdpRaymond = new Date(document.getElementById("lastCheckFerPdpRaymond").innerText);
+                        newDateFerPdpRaymond.setMonth(newDateFerPdpRaymond.getMonth() + months);
+                        return newDateFerPdpRaymond;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRaymond" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFerPdpRaymond = new Date(document.getElementById("lastCheckFerPdpRaymond").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFerPdpRaymond = addMonthsToDateFerPdpRaymond(LastCheckFerPdpRaymond, validityFerPdpRaymond);
+                    document.getElementById("newExpiryDateFerPdpRaymond").innerText = NewExpiryDateFerPdpRaymond.toLocaleDateString();
+            
+                    const remainingTimeFerPdpRaymond = NewExpiryDateFerPdpRaymond - currentDate;
+                    const remainingDaysFerPdpRaymond = Math.floor(remainingTimeFerPdpRaymond / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFerPdpRaymond").innerText = remainingDaysFerPdpRaymond;
+                    if (remainingDaysFerPdpRaymond < 60 && !document.getElementById("emailSentFerPdpRaymond").checked) {
+                      const recipient = 'ric.raymond@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FER PDP license';
+                      const body = 'Your FER PDP is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFerPdpRaymond").checked = true;
+                    }
+
+// FER PDP Raymond --------Ende---------------------------------------------   
+
+
+// FFS Raymond --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFfsRaymond = document.getElementById("validityFfsRaymond").innerText;
+                    let validityFfsRaymond = +ValidityStringFfsRaymond;
+                        
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFfsRaymond(date, months) {
+                        let newDateFfsRaymond = new Date(document.getElementById("lastCheckFfsRaymond").innerText);
+                        newDateFfsRaymond.setMonth(newDateFfsRaymond.getMonth() + months);
+                        return newDateFfsRaymond;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFfsRaymond = new Date(document.getElementById("lastCheckFfsRaymond").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFfsRaymond = addMonthsToDateFfsRaymond(LastCheckFfsRaymond, validityFfsRaymond);
+                    document.getElementById("newExpiryDateFfsRaymond").innerText = NewExpiryDateFfsRaymond.toLocaleDateString();
+        
+                    const remainingTimeFfsRaymond = NewExpiryDateFfsRaymond - currentDate;
+                    const remainingDaysFfsRaymond = Math.floor(remainingTimeFfsRaymond / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFfsRaymond").innerText = remainingDaysFfsRaymond;
+                    if (remainingDaysFfsRaymond < 60 && !document.getElementById("emailSentFfsRaymond").checked) {
+                      const recipient = 'ric.raymond@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FFS currency license';
+                      const body = 'Your FFS currency is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFfsRaymond").checked = true;
+                    }
+
+// FFS Raymond --------Ende---------------------------------------------
+
+
+// IPPM Raymond --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringIppmRaymond = document.getElementById("validityIppmRaymond").innerText;
+                    let validityIppmRaymond = +ValidityStringIppmRaymond;
+    
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIppmRaymond(date, months) {
+                        let newDateIppmRaymond = new Date(document.getElementById("lastCheckIppmRaymond").innerText);
+                        newDateIppmRaymond.setMonth(newDateIppmRaymond.getMonth() + months);
+                        return newDateIppmRaymond;
+                    }
+
+// Berechnung: Last Check + "validity" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIppmRaymond = new Date(document.getElementById("lastCheckIppmRaymond").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIppmRaymond = addMonthsToDateIppmRaymond(LastCheckIppmRaymond, validityIppmRaymond);
+                    document.getElementById("newExpiryDateIppmRaymond").innerText = NewExpiryDateIppmRaymond.toLocaleDateString();
+      
+                    const remainingTimeIppmRaymond = NewExpiryDateIppmRaymond - currentDate;
+                    const remainingDaysIppmRaymond = Math.floor(remainingTimeIppmRaymond / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIppmRaymond").innerText = remainingDaysIppmRaymond;
+                    if (remainingDaysIppmRaymond < 60 && !document.getElementById("emailSentIppmRaymond").checked) {
+                      const recipient = 'ric.raymond@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPPM license';
+                      const body = 'Your IPPM is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIppmRaymond").checked = true;
+                    }
+
+// IPPM Raymond --------Ende---------------------------------------------
+
+// IPC Raymond --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringIpcRaymond = document.getElementById("validityIpcRaymond").innerText;
+                    let validityIpcRaymond = +ValidityStringIpcRaymond;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIpcRaymond(date, months) {
+                        let newDateIpcRaymond = new Date(document.getElementById("lastCheckIpcRaymond").innerText);
+                        newDateIpcRaymond.setMonth(newDateIpcRaymond.getMonth() + months);
+                        return newDateIpcRaymond;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRaymond" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIpcRaymond = new Date(document.getElementById("lastCheckIpcRaymond").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIpcRaymond = addMonthsToDateIpcRaymond(LastCheckIpcRaymond, validityIpcRaymond);
+                    document.getElementById("newExpiryDateIpcRaymond").innerText = NewExpiryDateIpcRaymond.toLocaleDateString();
+           
+                    const remainingTimeIpcRaymond = NewExpiryDateIpcRaymond - currentDate;
+                    const remainingDaysIpcRaymond = Math.floor(remainingTimeIpcRaymond / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIpcRaymond").innerText = remainingDaysIpcRaymond;
+                    if (remainingDaysIpcRaymond < 60 && !document.getElementById("emailSentIpcRaymond").checked) {
+                      const recipient = 'ric.raymond@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPC license';
+                      const body = 'Your IPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIpcRaymond").checked = true;
+                    }
+
+// IPC Raymond --------Ende---------------------------------------------
+
+// =======================================================================
+
+// LPC Barrie --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringLpcBarrie = document.getElementById("validityLpcBarrie").innerText;
+                    let validityLpcBarrie = +ValidityStringLpcBarrie;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateLpcBarrie(date, months) {
+                        let newDateLpcBarrie = new Date(document.getElementById("lastCheckLpcBarrie").innerText);
+                        newDateLpcBarrie.setMonth(newDateLpcBarrie.getMonth() + months);
+                        return newDateLpcBarrie;
+                    }
+
+// Berechnung: Last Check + "validityMedicalBarrie" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckLpcBarrie = new Date(document.getElementById("lastCheckLpcBarrie").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateLpcBarrie = addMonthsToDateLpcBarrie(LastCheckLpcBarrie, validityLpcBarrie);
+                    document.getElementById("newExpiryDateLpcBarrie").innerText = NewExpiryDateLpcBarrie.toLocaleDateString();
+
+                    const remainingTimeLpcBarrie = NewExpiryDateLpcBarrie - currentDate;
+                    const remainingDaysLpcBarrie = Math.floor(remainingTimeLpcBarrie / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysLpcBarrie").innerText = remainingDaysLpcBarrie;
+                    if (remainingDaysLpcBarrie < 60 && !document.getElementById("emailSentLpcBarrie").checked) {
+                      const recipient = 'phillip.Barrie@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - LPC license';
+                      const body = 'Your LPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentLpcBarrie").checked = true;
+                    }
+
+// LPC Barrie --------Ende---------------------------------------------
+
+
+// MEDICAL Barrie --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringMedicalBarrie = document.getElementById("validityMedicalBarrie").innerText;
+                    let validityMedicalBarrie = +ValidityStringMedicalBarrie;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateMedicalBarrie(date, months) {
+                        let newDateMedicalBarrie = new Date(document.getElementById("lastCheckMedicalBarrie").innerText);
+                        newDateMedicalBarrie.setMonth(newDateMedicalBarrie.getMonth() + months);
+                        return newDateMedicalBarrie;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckMedicalBarrie = new Date(document.getElementById("lastCheckMedicalBarrie").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateMedicalBarrie = addMonthsToDateMedicalBarrie(LastCheckMedicalBarrie, validityMedicalBarrie);
+                    document.getElementById("newExpiryDateMedicalBarrie").innerText = NewExpiryDateMedicalBarrie.toLocaleDateString();
+            
+                    const remainingTimeMedicalBarrie = NewExpiryDateMedicalBarrie - currentDate;
+                    const remainingDaysMedicalBarrie = Math.floor(remainingTimeMedicalBarrie / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysMedicalBarrie").innerText = remainingDaysMedicalBarrie;
+                    if (remainingDaysMedicalBarrie < 60 && !document.getElementById("emailSentMedicalBarrie").checked) {
+                      const recipient = 'phillip.Barrie@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - Medical license';
+                      const body = 'Your Medical is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentMedicalBarrie").checked = true;
+                    }
+
+// MEDICAL Barrie --------Ende---------------------------------------------
+
+
+// CASA FPC Barrie --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFpcBarrie = document.getElementById("validityFpcBarrie").innerText;
+                    let validityFpcBarrie = +ValidityStringFpcBarrie;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFpcBarrie(date, months) {
+                        let newDateFpcBarrie = new Date(document.getElementById("lastCheckFpcBarrie").innerText);
+                        newDateFpcBarrie.setMonth(newDateFpcBarrie.getMonth() + months);
+                        return newDateFpcBarrie;
+                    }
+
+// Berechnung: Last Check + "validityMedicalBarrie" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFpcBarrie = new Date(document.getElementById("lastCheckFpcBarrie").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFpcBarrie = addMonthsToDateFpcBarrie(LastCheckFpcBarrie, validityFpcBarrie);
+                    document.getElementById("newExpiryDateFpcBarrie").innerText = NewExpiryDateFpcBarrie.toLocaleDateString();
+
+                    const remainingTimeFpcBarrie = NewExpiryDateFpcBarrie - currentDate;
+                    const remainingDaysFpcBarrie = Math.floor(remainingTimeFpcBarrie / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFpcBarrie").innerText = remainingDaysFpcBarrie;
+                    if (remainingDaysFpcBarrie < 60 && !document.getElementById("emailSentFpcBarrie").checked) {
+                      const recipient = 'phillip.Barrie@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FPC license';
+                      const body = 'Your FPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFpcBarrie").checked = true;
+                    }
+
+// CASA FPC Barrie --------Ende---------------------------------------------   
+
+
+// S&P Barrie --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringSpBarrie = document.getElementById("validitySpBarrie").innerText;
+                    let validitySpBarrie = +ValidityStringSpBarrie;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateSpBarrie(date, months) {
+                        let newDateSpBarrie = new Date(document.getElementById("lastCheckSpBarrie").innerText);
+                        newDateSpBarrie.setMonth(newDateSpBarrie.getMonth() + months);
+                        return newDateSpBarrie;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckSpBarrie = new Date(document.getElementById("lastCheckSpBarrie").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateSpBarrie = addMonthsToDateSpBarrie(LastCheckSpBarrie, validitySpBarrie);
+                    document.getElementById("newExpiryDateSpBarrie").innerText = NewExpiryDateSpBarrie.toLocaleDateString();
+            
+                    const remainingTimeSpBarrie = NewExpiryDateSpBarrie - currentDate;
+                    const remainingDaysSpBarrie = Math.floor(remainingTimeSpBarrie / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysSpBarrie").innerText = remainingDaysSpBarrie;
+                    if (remainingDaysSpBarrie < 60 && !document.getElementById("emailSentSpBarrie").checked) {
+                      const recipient = 'phillip.Barrie@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - S & P license';
+                      const body = 'Your S & P is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentSpBarrie").checked = true;
+                    }
+
+// S&P Barrie --------Ende---------------------------------------------
+
+
+// EPC Barrie --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringEpcBarrie = document.getElementById("validityEpcBarrie").innerText;
+                    let validityEpcBarrie = +ValidityStringEpcBarrie;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateEpcBarrie(date, months) {
+                        let newDateEpcBarrie = new Date(document.getElementById("lastCheckEpcBarrie").innerText);
+                        newDateEpcBarrie.setMonth(newDateEpcBarrie.getMonth() + months);
+                        return newDateEpcBarrie;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckEpcBarrie = new Date(document.getElementById("lastCheckEpcBarrie").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateEpcBarrie = addMonthsToDateEpcBarrie(LastCheckEpcBarrie, validityEpcBarrie);
+                    document.getElementById("newExpiryDateEpcBarrie").innerText = NewExpiryDateEpcBarrie.toLocaleDateString();
+            
+                    const remainingTimeEpcBarrie = NewExpiryDateEpcBarrie - currentDate;
+                    const remainingDaysEpcBarrie = Math.floor(remainingTimeEpcBarrie / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysEpcBarrie").innerText = remainingDaysEpcBarrie;
+                    if (remainingDaysEpcBarrie < 60 && !document.getElementById("emailSentEpcBarrie").checked) {
+                      const recipient = 'phillip.Barrie@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - EPC license';
+                      const body = 'Your EPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentEpcBarrie").checked = true;
+                    }
+
+// EPC Barrie --------Ende---------------------------------------------
+
+
+// FER PDP Barrie --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFerPdpBarrie = document.getElementById("validityFerPdpBarrie").innerText;
+                    let validityFerPdpBarrie = +ValidityStringFerPdpBarrie;
+           
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFerPdpBarrie(date, months) {
+                        let newDateFerPdpBarrie = new Date(document.getElementById("lastCheckFerPdpBarrie").innerText);
+                        newDateFerPdpBarrie.setMonth(newDateFerPdpBarrie.getMonth() + months);
+                        return newDateFerPdpBarrie;
+                    }
+
+// Berechnung: Last Check + "validityMedicalBarrie" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFerPdpBarrie = new Date(document.getElementById("lastCheckFerPdpBarrie").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFerPdpBarrie = addMonthsToDateFerPdpBarrie(LastCheckFerPdpBarrie, validityFerPdpBarrie);
+                    document.getElementById("newExpiryDateFerPdpBarrie").innerText = NewExpiryDateFerPdpBarrie.toLocaleDateString();
+            
+                    const remainingTimeFerPdpBarrie = NewExpiryDateFerPdpBarrie - currentDate;
+                    const remainingDaysFerPdpBarrie = Math.floor(remainingTimeFerPdpBarrie / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFerPdpBarrie").innerText = remainingDaysFerPdpBarrie;
+                    if (remainingDaysFerPdpBarrie < 60 && !document.getElementById("emailSentFerPdpBarrie").checked) {
+                      const recipient = 'phillip.Barrie@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FER PDP license';
+                      const body = 'Your FER PDP is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFerPdpBarrie").checked = true;
+                    }
+
+// FER PDP Barrie --------Ende---------------------------------------------   
+
+
+// FFS Barrie --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFfsBarrie = document.getElementById("validityFfsBarrie").innerText;
+                    let validityFfsBarrie = +ValidityStringFfsBarrie;
+                        
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFfsBarrie(date, months) {
+                        let newDateFfsBarrie = new Date(document.getElementById("lastCheckFfsBarrie").innerText);
+                        newDateFfsBarrie.setMonth(newDateFfsBarrie.getMonth() + months);
+                        return newDateFfsBarrie;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFfsBarrie = new Date(document.getElementById("lastCheckFfsBarrie").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFfsBarrie = addMonthsToDateFfsBarrie(LastCheckFfsBarrie, validityFfsBarrie);
+                    document.getElementById("newExpiryDateFfsBarrie").innerText = NewExpiryDateFfsBarrie.toLocaleDateString();
+        
+                    const remainingTimeFfsBarrie = NewExpiryDateFfsBarrie - currentDate;
+                    const remainingDaysFfsBarrie = Math.floor(remainingTimeFfsBarrie / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFfsBarrie").innerText = remainingDaysFfsBarrie;
+                    if (remainingDaysFfsBarrie < 60 && !document.getElementById("emailSentFfsBarrie").checked) {
+                      const recipient = 'phillip.Barrie@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FFS currency license';
+                      const body = 'Your FFS currency is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFfsBarrie").checked = true;
+                    }
+
+// FFS Barrie --------Ende---------------------------------------------
+
+
+// IPPM Barrie --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringIppmBarrie = document.getElementById("validityIppmBarrie").innerText;
+                    let validityIppmBarrie = +ValidityStringIppmBarrie;
+    
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIppmBarrie(date, months) {
+                        let newDateIppmBarrie = new Date(document.getElementById("lastCheckIppmBarrie").innerText);
+                        newDateIppmBarrie.setMonth(newDateIppmBarrie.getMonth() + months);
+                        return newDateIppmBarrie;
+                    }
+
+// Berechnung: Last Check + "validity" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIppmBarrie = new Date(document.getElementById("lastCheckIppmBarrie").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIppmBarrie = addMonthsToDateIppmBarrie(LastCheckIppmBarrie, validityIppmBarrie);
+                    document.getElementById("newExpiryDateIppmBarrie").innerText = NewExpiryDateIppmBarrie.toLocaleDateString();
+      
+                    const remainingTimeIppmBarrie = NewExpiryDateIppmBarrie - currentDate;
+                    const remainingDaysIppmBarrie = Math.floor(remainingTimeIppmBarrie / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIppmBarrie").innerText = remainingDaysIppmBarrie;
+                    if (remainingDaysIppmBarrie < 60 && !document.getElementById("emailSentIppmBarrie").checked) {
+                      const recipient = 'phillip.Barrie@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPPM license';
+                      const body = 'Your IPPM is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIppmBarrie").checked = true;
+                    }
+
+// IPPM Barrie --------Ende---------------------------------------------
+
+// IPC Barrie --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringIpcBarrie = document.getElementById("validityIpcBarrie").innerText;
+                    let validityIpcBarrie = +ValidityStringIpcBarrie;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIpcBarrie(date, months) {
+                        let newDateIpcBarrie = new Date(document.getElementById("lastCheckIpcBarrie").innerText);
+                        newDateIpcBarrie.setMonth(newDateIpcBarrie.getMonth() + months);
+                        return newDateIpcBarrie;
+                    }
+
+// Berechnung: Last Check + "validityMedicalBarrie" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIpcBarrie = new Date(document.getElementById("lastCheckIpcBarrie").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIpcBarrie = addMonthsToDateIpcBarrie(LastCheckIpcBarrie, validityIpcBarrie);
+                    document.getElementById("newExpiryDateIpcBarrie").innerText = NewExpiryDateIpcBarrie.toLocaleDateString();
+           
+                    const remainingTimeIpcBarrie = NewExpiryDateIpcBarrie - currentDate;
+                    const remainingDaysIpcBarrie = Math.floor(remainingTimeIpcBarrie / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIpcBarrie").innerText = remainingDaysIpcBarrie;
+                    if (remainingDaysIpcBarrie < 60 && !document.getElementById("emailSentIpcBarrie").checked) {
+                      const recipient = 'phillip.Barrie@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPC license';
+                      const body = 'Your IPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIpcBarrie").checked = true;
+                    }
+
+// IPC Barrie --------Ende---------------------------------------------
+
+// =======================================================================
+
+// LPC Granter --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringLpcGranter = document.getElementById("validityLpcGranter").innerText;
+                    let validityLpcGranter = +ValidityStringLpcGranter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateLpcGranter(date, months) {
+                        let newDateLpcGranter = new Date(document.getElementById("lastCheckLpcGranter").innerText);
+                        newDateLpcGranter.setMonth(newDateLpcGranter.getMonth() + months);
+                        return newDateLpcGranter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalGranter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckLpcGranter = new Date(document.getElementById("lastCheckLpcGranter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateLpcGranter = addMonthsToDateLpcGranter(LastCheckLpcGranter, validityLpcGranter);
+                    document.getElementById("newExpiryDateLpcGranter").innerText = NewExpiryDateLpcGranter.toLocaleDateString();
+
+                    const remainingTimeLpcGranter = NewExpiryDateLpcGranter - currentDate;
+                    const remainingDaysLpcGranter = Math.floor(remainingTimeLpcGranter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysLpcGranter").innerText = remainingDaysLpcGranter;
+                    if (remainingDaysLpcGranter < 60 && !document.getElementById("emailSentLpcGranter").checked) {
+                      const recipient = 'david.Granter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - LPC license';
+                      const body = 'Your LPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentLpcGranter").checked = true;
+                    }
+
+// LPC Granter --------Ende---------------------------------------------
+
+
+// MEDICAL Granter --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringMedicalGranter = document.getElementById("validityMedicalGranter").innerText;
+                    let validityMedicalGranter = +ValidityStringMedicalGranter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateMedicalGranter(date, months) {
+                        let newDateMedicalGranter = new Date(document.getElementById("lastCheckMedicalGranter").innerText);
+                        newDateMedicalGranter.setMonth(newDateMedicalGranter.getMonth() + months);
+                        return newDateMedicalGranter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckMedicalGranter = new Date(document.getElementById("lastCheckMedicalGranter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateMedicalGranter = addMonthsToDateMedicalGranter(LastCheckMedicalGranter, validityMedicalGranter);
+                    document.getElementById("newExpiryDateMedicalGranter").innerText = NewExpiryDateMedicalGranter.toLocaleDateString();
+            
+                    const remainingTimeMedicalGranter = NewExpiryDateMedicalGranter - currentDate;
+                    const remainingDaysMedicalGranter = Math.floor(remainingTimeMedicalGranter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysMedicalGranter").innerText = remainingDaysMedicalGranter;
+                    if (remainingDaysMedicalGranter < 60 && !document.getElementById("emailSentMedicalGranter").checked) {
+                      const recipient = 'david.Granter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - Medical license';
+                      const body = 'Your Medical is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentMedicalGranter").checked = true;
+                    }
+
+// MEDICAL Granter --------Ende---------------------------------------------
+
+
+// CASA FPC Granter --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFpcGranter = document.getElementById("validityFpcGranter").innerText;
+                    let validityFpcGranter = +ValidityStringFpcGranter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFpcGranter(date, months) {
+                        let newDateFpcGranter = new Date(document.getElementById("lastCheckFpcGranter").innerText);
+                        newDateFpcGranter.setMonth(newDateFpcGranter.getMonth() + months);
+                        return newDateFpcGranter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalGranter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFpcGranter = new Date(document.getElementById("lastCheckFpcGranter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFpcGranter = addMonthsToDateFpcGranter(LastCheckFpcGranter, validityFpcGranter);
+                    document.getElementById("newExpiryDateFpcGranter").innerText = NewExpiryDateFpcGranter.toLocaleDateString();
+
+                    const remainingTimeFpcGranter = NewExpiryDateFpcGranter - currentDate;
+                    const remainingDaysFpcGranter = Math.floor(remainingTimeFpcGranter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFpcGranter").innerText = remainingDaysFpcGranter;
+                    if (remainingDaysFpcGranter < 60 && !document.getElementById("emailSentFpcGranter").checked) {
+                      const recipient = 'david.Granter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FPC license';
+                      const body = 'Your FPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFpcGranter").checked = true;
+                    }
+
+// CASA FPC Granter --------Ende---------------------------------------------   
+
+
+// S&P Granter --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringSpGranter = document.getElementById("validitySpGranter").innerText;
+                    let validitySpGranter = +ValidityStringSpGranter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateSpGranter(date, months) {
+                        let newDateSpGranter = new Date(document.getElementById("lastCheckSpGranter").innerText);
+                        newDateSpGranter.setMonth(newDateSpGranter.getMonth() + months);
+                        return newDateSpGranter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckSpGranter = new Date(document.getElementById("lastCheckSpGranter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateSpGranter = addMonthsToDateSpGranter(LastCheckSpGranter, validitySpGranter);
+                    document.getElementById("newExpiryDateSpGranter").innerText = NewExpiryDateSpGranter.toLocaleDateString();
+            
+                    const remainingTimeSpGranter = NewExpiryDateSpGranter - currentDate;
+                    const remainingDaysSpGranter = Math.floor(remainingTimeSpGranter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysSpGranter").innerText = remainingDaysSpGranter;
+                    if (remainingDaysSpGranter < 60 && !document.getElementById("emailSentSpGranter").checked) {
+                      const recipient = 'david.Granter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - S & P license';
+                      const body = 'Your S & P is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentSpGranter").checked = true;
+                    }
+
+// S&P Granter --------Ende---------------------------------------------
+
+
+// EPC Granter --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringEpcGranter = document.getElementById("validityEpcGranter").innerText;
+                    let validityEpcGranter = +ValidityStringEpcGranter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateEpcGranter(date, months) {
+                        let newDateEpcGranter = new Date(document.getElementById("lastCheckEpcGranter").innerText);
+                        newDateEpcGranter.setMonth(newDateEpcGranter.getMonth() + months);
+                        return newDateEpcGranter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckEpcGranter = new Date(document.getElementById("lastCheckEpcGranter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateEpcGranter = addMonthsToDateEpcGranter(LastCheckEpcGranter, validityEpcGranter);
+                    document.getElementById("newExpiryDateEpcGranter").innerText = NewExpiryDateEpcGranter.toLocaleDateString();
+            
+                    const remainingTimeEpcGranter = NewExpiryDateEpcGranter - currentDate;
+                    const remainingDaysEpcGranter = Math.floor(remainingTimeEpcGranter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysEpcGranter").innerText = remainingDaysEpcGranter;
+                    if (remainingDaysEpcGranter < 60 && !document.getElementById("emailSentEpcGranter").checked) {
+                      const recipient = 'david.Granter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - EPC license';
+                      const body = 'Your EPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentEpcGranter").checked = true;
+                    }
+
+// EPC Granter --------Ende---------------------------------------------
+
+
+// FER PDP Granter --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFerPdpGranter = document.getElementById("validityFerPdpGranter").innerText;
+                    let validityFerPdpGranter = +ValidityStringFerPdpGranter;
+           
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFerPdpGranter(date, months) {
+                        let newDateFerPdpGranter = new Date(document.getElementById("lastCheckFerPdpGranter").innerText);
+                        newDateFerPdpGranter.setMonth(newDateFerPdpGranter.getMonth() + months);
+                        return newDateFerPdpGranter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalGranter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFerPdpGranter = new Date(document.getElementById("lastCheckFerPdpGranter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFerPdpGranter = addMonthsToDateFerPdpGranter(LastCheckFerPdpGranter, validityFerPdpGranter);
+                    document.getElementById("newExpiryDateFerPdpGranter").innerText = NewExpiryDateFerPdpGranter.toLocaleDateString();
+            
+                    const remainingTimeFerPdpGranter = NewExpiryDateFerPdpGranter - currentDate;
+                    const remainingDaysFerPdpGranter = Math.floor(remainingTimeFerPdpGranter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFerPdpGranter").innerText = remainingDaysFerPdpGranter;
+                    if (remainingDaysFerPdpGranter < 60 && !document.getElementById("emailSentFerPdpGranter").checked) {
+                      const recipient = 'david.Granter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FER PDP license';
+                      const body = 'Your FER PDP is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFerPdpGranter").checked = true;
+                    }
+
+// FER PDP Granter --------Ende---------------------------------------------   
+
+
+// FFS Granter --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringFfsGranter = document.getElementById("validityFfsGranter").innerText;
+                    let validityFfsGranter = +ValidityStringFfsGranter;
+                        
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateFfsGranter(date, months) {
+                        let newDateFfsGranter = new Date(document.getElementById("lastCheckFfsGranter").innerText);
+                        newDateFfsGranter.setMonth(newDateFfsGranter.getMonth() + months);
+                        return newDateFfsGranter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalRossiter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckFfsGranter = new Date(document.getElementById("lastCheckFfsGranter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateFfsGranter = addMonthsToDateFfsGranter(LastCheckFfsGranter, validityFfsGranter);
+                    document.getElementById("newExpiryDateFfsGranter").innerText = NewExpiryDateFfsGranter.toLocaleDateString();
+        
+                    const remainingTimeFfsGranter = NewExpiryDateFfsGranter - currentDate;
+                    const remainingDaysFfsGranter = Math.floor(remainingTimeFfsGranter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysFfsGranter").innerText = remainingDaysFfsGranter;
+                    if (remainingDaysFfsGranter < 60 && !document.getElementById("emailSentFfsGranter").checked) {
+                      const recipient = 'david.Granter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - FFS currency license';
+                      const body = 'Your FFS currency is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentFfsGranter").checked = true;
+                    }
+
+// FFS Granter --------Ende---------------------------------------------
+
+
+// IPPM Granter --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+                    let ValidityStringIppmGranter = document.getElementById("validityIppmGranter").innerText;
+                    let validityIppmGranter = +ValidityStringIppmGranter;
+    
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIppmGranter(date, months) {
+                        let newDateIppmGranter = new Date(document.getElementById("lastCheckIppmGranter").innerText);
+                        newDateIppmGranter.setMonth(newDateIppmGranter.getMonth() + months);
+                        return newDateIppmGranter;
+                    }
+
+// Berechnung: Last Check + "validity" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIppmGranter = new Date(document.getElementById("lastCheckIppmGranter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIppmGranter = addMonthsToDateIppmGranter(LastCheckIppmGranter, validityIppmGranter);
+                    document.getElementById("newExpiryDateIppmGranter").innerText = NewExpiryDateIppmGranter.toLocaleDateString();
+      
+                    const remainingTimeIppmGranter = NewExpiryDateIppmGranter - currentDate;
+                    const remainingDaysIppmGranter = Math.floor(remainingTimeIppmGranter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIppmGranter").innerText = remainingDaysIppmGranter;
+                    if (remainingDaysIppmGranter < 60 && !document.getElementById("emailSentIppmGranter").checked) {
+                      const recipient = 'david.Granter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPPM license';
+                      const body = 'Your IPPM is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIppmGranter").checked = true;
+                    }
+
+// IPPM Granter --------Ende---------------------------------------------
+
+// IPC Granter --------Anfang---------------------------------------------
+
+// den string (p) in eine Number convertieren mit dem + Symbol
+let ValidityStringIpcGranter = document.getElementById("validityIpcGranter").innerText;
+                    let validityIpcGranter = +ValidityStringIpcGranter;
+
+// diese function addiert die Monate zu dem Datum
+                    function addMonthsToDateIpcGranter(date, months) {
+                        let newDateIpcGranter = new Date(document.getElementById("lastCheckIpcGranter").innerText);
+                        newDateIpcGranter.setMonth(newDateIpcGranter.getMonth() + months);
+                        return newDateIpcGranter;
+                    }
+
+// Berechnung: Last Check + "validityMedicalGranter" Monate
+// das "new Date" nimmt den Inhalt aus id=lastCheck als Datum (es muss "Jahr-Monat-Tag" sein)
+                    let LastCheckIpcGranter = new Date(document.getElementById("lastCheckIpcGranter").innerText);
+            
+// hier wird die function "addMonthsToDate" ausgeführt
+                    let NewExpiryDateIpcGranter = addMonthsToDateIpcGranter(LastCheckIpcGranter, validityIpcGranter);
+                    document.getElementById("newExpiryDateIpcGranter").innerText = NewExpiryDateIpcGranter.toLocaleDateString();
+           
+                    const remainingTimeIpcGranter = NewExpiryDateIpcGranter - currentDate;
+                    const remainingDaysIpcGranter = Math.floor(remainingTimeIpcGranter / (1000 * 60 * 60 * 24));
+                    document.getElementById("remDaysIpcGranter").innerText = remainingDaysIpcGranter;
+                    if (remainingDaysIpcGranter < 60 && !document.getElementById("emailSentIpcGranter").checked) {
+                      const recipient = 'david.Granter@cae.com';
+                      const ccRecipient = 'janine.mcmullan@cae.com, phillip.barrie@cae.com';  // Hier die CC-E-Mail-Adresse einfügen, weitere emails durch Komma getrennt
+                      const subject = 'Automated Email - IPC license';
+                      const body = 'Your IPC is going to expire. Please contact Plato.';
+
+                      // Korrekte Mailto-URL mit CC
+                      const mailtoLink = `mailto:${recipient}?cc=${encodeURIComponent(ccRecipient)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                      // E-Mail-Link öffnen (E-Mail-Client wird geöffnet)
+                      window.location.href = mailtoLink;
+
+                      // Optional: Checkbox nach dem Senden der E-Mail aktualisieren
+                      document.getElementById("emailSentIpcGranter").checked = true;
+                    }
+
+// IPC Granter --------Ende---------------------------------------------
+
+
+  }, 100); // 100ms warten, damit `loadTableData()` zuerst läuft
+            
+          };
+  
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
