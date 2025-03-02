@@ -49,14 +49,21 @@
         background-color: orange;
     }
 
+    .sticky {
+      position: sticky;
+      top: 50px;
+      left: 50px;
+    }
+
     #saveButton {
-        height: 50px;
-        width: 200px;
+        height: 40px;
+        width: 180px;
         background-color: brown;
-        font-size: 20px;
+        font-size: 18px;
         color: aliceblue;
         border-radius: 20px;
         cursor: pointer;
+        box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.3);
     }
 
     h4 {
@@ -74,7 +81,10 @@
     
 </head>
 <body>
-  <h4>CAE Instructor-tracker (auto-email)</h4>
+
+  <button class="sticky" id="saveButton" onclick="saveTableData('Rossiter'); saveTableData('Campbell'); saveTableData('Gratton'); saveTableData('Raymond'); saveTableData('Barrie'); saveTableData('Granter')">Update/Save values</button>
+
+  <h4>CAE Instructor-tracker <span style="color: brown;">(auto-email)</span></h4>
   <div class="flexbox">
       <div>
         <table id="editableTableRossiter">
@@ -614,7 +624,7 @@
 
   </div>
 
-  <button id="saveButton" onclick="saveTableData('Rossiter'); saveTableData('Campbell'); saveTableData('Gratton'); saveTableData('Raymond'); saveTableData('Barrie'); saveTableData('Granter')">Update/Save values</button>
+  
 
 <script>
 
